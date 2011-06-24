@@ -50,7 +50,9 @@ class View {
 		extract($this->pageVars);
 
 		ob_start();
-		require($this->template);
+		include(APP_DIR . 'views/sys/head.php');
+		include($this->template);
+		include(APP_DIR . 'views/sys/tail.php');
 		echo ob_get_clean();
 	}
     
