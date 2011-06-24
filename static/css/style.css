@@ -16,9 +16,13 @@
 }
 
 /* Debug view */
+#debug p,
+#debug fieldset{
+    margin: 10px;
+}
+
 #debug fieldset{
     border: 1px solid #888;
-    margin: 10px;
     padding: 5px;
 }
 
@@ -28,6 +32,11 @@
     cursor: pointer;
 }
 
-#debug pre {
+#debug fieldset * {
     display: none;
 }
+
+#debug legend {
+    display: block;
+}
+
