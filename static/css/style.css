@@ -1,5 +1,20 @@
 /* CSS Styles */
 
+/* Error View */
+#error {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid red;
+}
+
+#error h1 {
+    font-size: 24px;
+}
+
+#error p {
+    font-size: 16px;
+}
+
 /* Debug view */
 #debug fieldset{
     border: 1px solid #888;

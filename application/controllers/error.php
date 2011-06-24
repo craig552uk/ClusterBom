@@ -23,8 +23,11 @@ class Error extends Controller {
      */
 	function error404()
 	{
-		echo '<h1>404 Error</h1>';
-		echo '<p>Looks like this page doesn\'t exist</p>';
+		// Load and render error view
+		$template = $this->load->view('error');
+		$template->set('title','404 Error');
+		$template->set('message','Looks like this page doesn\'t exist');
+        $template->render();
 	}
     
 }
