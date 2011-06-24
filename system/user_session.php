@@ -24,8 +24,15 @@ class UserSession
      */
     public function tryRedirect(){
         if(!$this->established()){
-            header('Location: '.BASE_URL);
+            $this->goHome();
         }
+    }
+    
+    /**
+     * Redirect back home
+     */
+    public function goHome(){
+        header('Location: '.BASE_URL);
     }
     
     /*

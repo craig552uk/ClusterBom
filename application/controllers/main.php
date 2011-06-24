@@ -1,26 +1,31 @@
 <?php
 /**
- * Example Controller Class 
+ * Main Controller Class 
  *
- * This is an example controller showing how to extend the base controller class
+ * This is the default controller
  *
- * @author Gilbert Pellegrom
- * @package PIP
  */
 class Main extends Controller {
 	
     /**
      * Default controller function
      */
-	function index()
+	public function index()
     {
         if($this->session->established()){
-            // Display authenticated view
+        
+            // Load authenticated view
 		    $template = $this->load->view('app/dashboard');
+
+		    // Inject user data
+		    $userdata = $this->session->getData();
+		    $template->set('userdata', $userdata);
 		}else{
-		    // Display unauthenticated view
+		    // Load unauthenticated view
 		    $template = $this->load->view('index');
 		}
+		
+		// Render View
 		$template->set('title','Welcome to ClusterBom');
         $template->render();
 	}
