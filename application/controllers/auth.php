@@ -12,7 +12,8 @@ class Auth extends Controller {
      */
 	public function index()
     {
-        $this->login();
+        // User full path for login, else query string response breaks
+        echo "What's this?";
 	}
 	
 	/*

@@ -9,5 +9,5 @@
 
 <div id="content">
     <h1>Welcome to ClusterBom</h1>
-    <a href="#" onclick="popup('<?php echo BASE_URL . 'auth/' ?>'); return false;">login</a>
+    <p><a href="#" onclick="popup('<?php echo BASE_URL . 'auth/login/' ?>'); return false;">login</a></p>
 </div>
