@@ -1,0 +1,11 @@
+/* TEAM */
+  Everything: Craig Russell
+  Site: http://www.craig-russell.co.uk
+  Twitter: @craig552uk
+  Location: Leicester, UK
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, PHP, Java, Love, Care, Attention
+  Software: gEdit, Git, Ubuntu
+  
