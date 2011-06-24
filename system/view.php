@@ -44,15 +44,18 @@ class View {
     /*
      * Render the view
      * Extract set variables in to view scope
+     *
+     * @param boolean $ht       If true wraps view in source from 
+     *                          sys/head.php and sys/tail.php 
      */
-	public function render()
+	public function render($ht=true)
 	{
 		extract($this->pageVars);
 
 		ob_start();
-		include(APP_DIR . 'views/sys/head.php');
+		if($ht) include(APP_DIR . 'views/sys/head.php');
 		include($this->template);
-		include(APP_DIR . 'views/sys/tail.php');
+		if($ht) include(APP_DIR . 'views/sys/tail.php');
 		echo ob_get_clean();
 	}
     
