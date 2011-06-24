@@ -34,10 +34,6 @@ function pip()
 	$segments = explode('?', $url);
 	$segments = explode('/', $segments[0]);
 	
-	echo '<pre>';
-	print_r($segments);
-	echo '</pre>';
-	
 	// Do our default checks
 	if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
 	if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
