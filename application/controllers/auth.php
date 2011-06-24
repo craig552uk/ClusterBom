@@ -38,6 +38,8 @@ class Auth extends Controller {
 	                session_regenerate_id(true);
 	                // Start session
 	                $this->session->create($openid->identity, $openid->getAttributes());
+	                // TODO Create new accoutn in DB
+	                //      Or record returning user in DB
 	            }
 	        }
 	        // Close popup
