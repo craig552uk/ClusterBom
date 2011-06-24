@@ -1,11 +1,8 @@
 <?php
 /**
- * Header View 
+ * Dispalyed at the top of all views
+ * Unless render is called like $template->render(false);
  *
- * This should be included at the top of all other views
- *
- * @author Gilbert Pellegrom
- * @package PIP
  */
 ?>
 <!DOCTYPE html>

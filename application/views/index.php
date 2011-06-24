@@ -2,16 +2,11 @@
 /**
  * Main View 
  *
- * This is the default view
+ * This is the default view for unauthenticated users
  *
- * @author Gilbert Pellegrom
- * @package PIP
  */
 ?>
-<?php include('header.php'); ?>
-	
-    <div id="content">
-        <h1>Welcome to ClusterBom</h1>
-    </div>
-  
-<?php include('footer.php'); ?>
+
+<div id="content">
+    <h1>Welcome to ClusterBom - not logged in</h1>
+</div>

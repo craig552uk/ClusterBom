@@ -1,11 +1,8 @@
 <?php
 /**
- * Footer View 
+ * Dispalyed at the end of all views
+ * Unless render is called like $template->render(false);
  *
- * This should be included at the end of all other views
- *
- * @author Gilbert Pellegrom
- * @package PIP
  */
 ?>
 <?php include('debug.php'); /* Debug data on every page */ ?>  

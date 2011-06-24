@@ -2,10 +2,8 @@
 /**
  * Main View 
  *
- * This is the default view
+ * This is the view for error messages
  *
- * @author Gilbert Pellegrom
- * @package PIP
  */
 ?>
 	
