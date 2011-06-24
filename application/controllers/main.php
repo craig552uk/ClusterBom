@@ -18,8 +18,7 @@ class Main extends Controller {
 		    $template = $this->load->view('app/dashboard');
 
 		    // Inject user data
-		    $userdata = $this->session->getData();
-		    $template->set('userdata', $userdata);
+		    $template->set('userdata', $this->session->getData());
 		}else{
 		    // Load unauthenticated view
 		    $template = $this->load->view('index');
