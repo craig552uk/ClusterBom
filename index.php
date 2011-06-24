@@ -16,6 +16,7 @@ session_start();
 // Defines
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
 define('APP_DIR', ROOT_DIR .'application/');
+define('DEBUG', true);
 
 // Include dependencies
 require(APP_DIR .'config/config.php');

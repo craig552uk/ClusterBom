@@ -13,5 +13,6 @@
     <div id="content">
         <h1>Welcome to ClusterBom</h1>
     </div>
-    
+
+<?php include('debug.php'); ?>    
 <?php include('footer.php'); ?>
