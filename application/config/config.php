@@ -33,3 +33,10 @@ $config['db_name'] = '';
 $config['db_username'] = ''; 
 $config['db_password'] = '';
 
+/**
+ * Date & Time formats for display
+ * See http://php.net/manual/en/function.date.php
+ */
+define('DATE_FORMAT', 'D jS M Y');
+define('TIME_FORMAT', 'H:i:s');
+define('DATETIME_FORMAT', TIME_FORMAT.' \o\n '.DATE_FORMAT);
