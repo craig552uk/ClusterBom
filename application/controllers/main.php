@@ -15,8 +15,8 @@ class Main extends Controller {
 	function index()
     {
         // Load and render main view
-		$template = $this->load->view('main_view');
-		$template->set('title','Welcome to PIP assface');
+		$template = $this->load->view('index');
+		$template->set('title','Welcome to ClusterBom');
         $template->render();
 	}
     
