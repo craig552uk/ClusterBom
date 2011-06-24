@@ -13,6 +13,8 @@
             debug_block('POST Data', $_POST);
             debug_block('Cookie Data', $_COOKIE);
             debug_block('Server Data', $_SERVER);
+            global $url_processing;
+            debug_block('URL Processing', $url_processing);
         ?>
     
     </fieldset>
