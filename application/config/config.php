@@ -9,7 +9,7 @@
 /**
  * Base URL including trailing slash (e.g. http://localhost/)
  */
-$config['base_url'] = 'http://local.host/';
+$config['base_url'] = 'http://local.host/ClusterBom/';
 
 /**
  * System controllers
