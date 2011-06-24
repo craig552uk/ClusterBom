@@ -8,6 +8,6 @@
 ?>
 
 <div id="content">
-    <h1>Welcome to ClusterBom - not logged in</h1>
-    <a href="<?php echo BASE_URL . 'auth/' ?>">login</a>
+    <h1>Welcome to ClusterBom</h1>
+    <a href="#" onclick="popup('<?php echo BASE_URL . 'auth/' ?>'); return false;">login</a>
 </div>

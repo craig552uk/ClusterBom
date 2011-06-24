@@ -41,9 +41,11 @@ class UserSession
      * @param string $email  User email
      * @param string $uri    Users google uri
      */
-    public function create($email, $uri){
+    public function create($uri, $userData){
         $_SESSION['auth']['state'] = 'AUTHENTICATED';
-        $_SESSION['auth']['email'] = $email;
+        $_SESSION['auth']['email'] = $userData['contact/email'];
+        $_SESSION['auth']['fname'] = $userData['namePerson/first'];
+        $_SESSION['auth']['sname'] = $userData['namePerson/last'];
         $_SESSION['auth']['uri']   = $uri;
         $_SESSION['auth']['time']  = time();
     }
