@@ -4,5 +4,6 @@
  *
  */
 ?>
-
-<p>Logged in at <?php echo date(DATE_ATOM, $userdata->time); ?></p>
+<footer>
+    <p>Logged in at <?php echo date(DATETIME_FORMAT, $userdata->time); ?></p>
+</footer>
