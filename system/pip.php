@@ -30,8 +30,13 @@ function pip()
 	// Get our url path and trim the / of the left and the right
 	if($request_url != $script_url) $url = trim(preg_replace('/'. str_replace('/', '\/', str_replace('index.php', '', $script_url)) .'/', '', $request_url, 1), '/');
 
-	// Split the url into segments
-	$segments = explode('/', $url);
+	// Split the url into segments ignoring the query string
+	$segments = explode('?', $url);
+	$segments = explode('/', $segments[0]);
+	
+	echo '<pre>';
+	print_r($segments);
+	echo '</pre>';
 	
 	// Do our default checks
 	if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
