@@ -14,13 +14,20 @@ class Controller {
      * @access public
      */
 	public $load;  // Load object
+	
+	/**
+	 * Session object
+	 * @access public
+	 */
+	public $session;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->load = new Load();          
+        $this->load = new Load();   
+        $this->session = new UserSession();       
     }
 
     /*

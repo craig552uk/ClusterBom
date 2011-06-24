@@ -20,6 +20,7 @@ define('DEBUG', true);
 
 // Include dependencies
 require(APP_DIR .'config/config.php');
+require(ROOT_DIR .'system/user_session.php');
 require(ROOT_DIR .'system/load.php');
 require(ROOT_DIR .'system/model.php');
 require(ROOT_DIR .'system/view.php');
