@@ -14,8 +14,13 @@ class Main extends Controller {
      */
 	function index()
     {
-        // Load and render main view
-		$template = $this->load->view('index');
+        if($this->session->established()){
+            // Display authenticated view
+		    $template = $this->load->view('app/dashboard');
+		}else{
+		    // Display unauthenticated view
+		    $template = $this->load->view('index');
+		}
 		$template->set('title','Welcome to ClusterBom');
         $template->render();
 	}
