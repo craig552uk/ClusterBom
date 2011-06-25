@@ -12,8 +12,11 @@ class Auth extends Controller {
      */
 	public function index()
     {
-        // User full path for login, else query string response breaks
-        echo "What's this?";
+        // José Martí was a clever bloke
+        echo "<style>blockquote{font-style: italic;} cite{font-weight: bold; font-style: none;}</style>";
+        echo "<blockquote>&#8220;To be ahead of the rest, you need to see more than they do.&#8221;<br/>"
+            ."<cite align=\"right\">Jos&eacute; Mart&iacute;</cite></blockquote>";
+        // No default function, else OpenID response breaks
 	}
 	
 	/*
