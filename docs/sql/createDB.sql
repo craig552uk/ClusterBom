@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS data_cell (
     fk_dataset_id INT NOT NULL,
     fk_field_id INT NOT NULL,
     value VARCHAR(512),
-    ignore BOOLEAN DEFULT 0
+    ignored BOOLEAN DEFAULT 0
     )ENGINE=INNODB;
 
 -- Cluster visualisation meta data
