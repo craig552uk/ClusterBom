@@ -28,10 +28,10 @@ $config['error_controller'] = 'error';
  * db_username          Database username
  * db_password          Database password
  */
-$config['db_host'] = ''; 
-$config['db_name'] = '';
-$config['db_username'] = ''; 
-$config['db_password'] = '';
+$config['db_host']     = 'localhost'; 
+$config['db_name']     = 'clusterbom';
+$config['db_username'] = 'root'; 
+$config['db_password'] = 'passw0rd';
 
 /**
  * Date & Time formats for display
