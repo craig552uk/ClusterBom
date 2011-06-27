@@ -23,10 +23,16 @@ class Account extends Controller {
     {
         // Secure access only
         $this->session->tryRedirect();
+        
+        // Get user data
+        $user = $this->load->model('User');
+        $user->loadByEmail( $this->session->getData()->email);
+        
         // Load view
-        $template = $this->load->view('app/dummy');
+        $template = $this->load->view('app/user-profile');
         $template->set('message', "Account Profile");
         $template->set('userdata', $this->session->getData());
+        $template->set('account', $user->dump());
         $template->render();
 	}
 	
