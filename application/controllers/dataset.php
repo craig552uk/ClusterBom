@@ -2,8 +2,6 @@
 /**
  * Dataset Controller Class 
  *
- * This is the default controller
- *
  */
 class Dataset extends Controller {
 	
@@ -13,19 +11,29 @@ class Dataset extends Controller {
 	public function index()
     {
         // Default view
-        $this->showall();
+        $this->all();
 	}
 	
 	/**
      * Show all data sets
      */
-	public function showall()
+	public function all()
     {
         // Secure access only
         $this->session->tryRedirect();
+        
+        // Create dataset object
+        $dataset_list = $this->load->model('DataSetList');
+        $dataset_list->buildList($this->session->id);
+        
+        // Get dataset lists
+        $public_list = $dataset_list->getPublic();
+        $user_list   = $dataset_list->getUser();
+        
         // Load view
-        $template = $this->load->view('app/dummy');
-        $template->set('message', "Show all data sets");
+        $template = $this->load->view('app/dataset-list');
+        $template->set('public_list', $public_list);
+        $template->set('user_list', $user_list);
         $template->set('session', $this->session->getData());
         $template->render();
 	}
@@ -54,6 +62,20 @@ class Dataset extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Import a dataset");
+        $template->set('session', $this->session->getData());
+        $template->render();
+	}
+	
+	/**
+     * View a data set
+     */
+	public function view()
+    {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
+        $template = $this->load->view('app/dummy');
+        $template->set('message', "View a dataset");
         $template->set('session', $this->session->getData());
         $template->render();
 	}
