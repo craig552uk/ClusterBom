@@ -39,10 +39,42 @@ class Auth extends Controller {
 	            if($openid->validate()){
 	                // Valid response
 	                session_regenerate_id(true);
-	                // Start session
-	                $this->session->create($openid->identity, $openid->getAttributes());
-	                // TODO Create new accoutn in DB
-	                //      Or record returning user in DB
+                    $goog_data = $openid->getAttributes();
+                    $goog_id   = $openid->identity;    
+
+	                // Create empty user object
+	                $user = $this->load->model('User');
+	                // Look up email
+	                if($user->loadByEmail($goog_data['contact/email'])){
+	                    // User exists
+	                    if($user->enabled){
+	                        // Authenticated
+	                        // Update details from google
+	                        $user->fname = $goog_data['namePerson/first'];
+	                        $user->sname = $goog_data['namePerson/last'];
+	                        $user->goog_id = $goog_id;
+	                        $user->login_count++;   // Increment login count
+	                        $user->save();          // Save changes
+	                        // Start session
+        	                $this->session->create($goog_id, $goog_data);
+	                    }else{
+	                        // Account disabled
+	                        $this->session->setError('ACCOUNT_DISABLED');
+	                    }
+	                }else{
+	                    // User does not exist
+	                    $user->fname = $goog_data['namePerson/first'];
+                        $user->sname = $goog_data['namePerson/last'];
+	                    $user->email = $goog_data['contact/email'];
+                        $user->goog_id = $goog_id;
+	                    $user->login_count = 1;
+	                    $user->save();          // Create user record
+	                    // Start session
+    	                $this->session->create($goog_id, $goog_data);
+	                }
+	            }else{
+	                // Not validated by Google
+	                $this->session->setError('GOOGLE_ACCOUNT_INVALID');
 	            }
 	        }
 	        // Close popup

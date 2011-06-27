@@ -19,6 +19,33 @@ class UserSession
         return isset($_SESSION['auth']['state']) && $_SESSION['auth']['state'] == 'AUTHENTICATED';
     }
     
+    /*
+     * Is session error
+     *
+     * @return boolean  True if a user session is established
+     */
+    public function error()
+    {
+        return isset($_SESSION['auth']['state']) && $_SESSION['auth']['state'] == 'ERROR';
+    }
+    
+    /**
+     * Set error code
+     */
+    public function setError($code='UNKNOWN')
+    {
+        $_SESSION['auth']['state'] = 'ERROR';
+        $_SESSION['auth']['error_code'] = $code;
+    }
+    
+    /**
+     * Get error code
+     */
+    public function getError()
+    {
+        return $_SESSION['auth']['error_code'];
+    }
+    
     /**
      * Check current authentication, if not established redirect to base
      */
@@ -66,6 +93,8 @@ class UserSession
         $obj = null;
         if(isset($_SESSION['auth'])){
             $obj->email = $_SESSION['auth']['email'];
+            $obj->fname = $_SESSION['auth']['fname'];
+            $obj->sname = $_SESSION['auth']['sname'];
             $obj->uri   = $_SESSION['auth']['uri'];
             $obj->time  = $_SESSION['auth']['time'];
         }
