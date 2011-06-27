@@ -101,5 +101,15 @@ class UserSession
         }
         return $obj;
     }
+    
+    /**
+     * Direct access to stored data
+     */
+    public function __get($param){
+        if(isset($_SESSION['auth'][$param])){
+            return $_SESSION['auth'][$param];
+        }
+        return 0;
+    }
 
 }
