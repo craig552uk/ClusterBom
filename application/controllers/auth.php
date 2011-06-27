@@ -55,6 +55,10 @@ class Auth extends Controller {
 	                        $user->goog_id = $goog_id;
 	                        $user->login_count++;   // Increment login count
 	                        $user->save();          // Save changes
+	                        
+	                        // Pass user ID to session
+	                        $goog_data['clusterbom/pk_cust_id'] = $user->id;
+	                    
 	                        // Start session
         	                $this->session->create($goog_id, $goog_data);
 	                    }else{
@@ -69,6 +73,10 @@ class Auth extends Controller {
                         $user->goog_id = $goog_id;
 	                    $user->login_count = 1;
 	                    $user->save();          // Create user record
+	                    
+	                    // Pass user ID to session
+	                    $goog_data['clusterbom/pk_cust_id'] = $user->id;
+	                    
 	                    // Start session
     	                $this->session->create($goog_id, $goog_data);
 	                }

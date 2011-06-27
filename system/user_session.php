@@ -74,6 +74,7 @@ class UserSession
         $_SESSION['auth']['fname'] = $userData['namePerson/first'];
         $_SESSION['auth']['sname'] = $userData['namePerson/last'];
         $_SESSION['auth']['uri']   = $uri;
+        $_SESSION['auth']['id']    = $userData['clusterbom/pk_cust_id'];
         $_SESSION['auth']['time']  = time();
     }
     
