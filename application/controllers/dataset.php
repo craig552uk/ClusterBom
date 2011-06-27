@@ -26,7 +26,7 @@ class Dataset extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Show all data sets");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
@@ -40,7 +40,7 @@ class Dataset extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Edit a dataset");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
@@ -54,7 +54,7 @@ class Dataset extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Import a dataset");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
     

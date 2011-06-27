@@ -26,7 +26,7 @@ class Visualisation extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Show all Visualisations");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
@@ -40,7 +40,7 @@ class Visualisation extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Import a Visualisation");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
@@ -54,7 +54,7 @@ class Visualisation extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "View a Visualisation");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
     

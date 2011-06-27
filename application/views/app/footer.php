@@ -5,5 +5,5 @@
  */
 ?>
 <footer>
-    <p>Logged in at <?php echo date(DATETIME_FORMAT, $userdata->time); ?></p>
+    <p>Logged in at <?php echo date(DATETIME_FORMAT, $session->time); ?></p>
 </footer>

@@ -31,7 +31,7 @@ class Account extends Controller {
         // Load view
         $template = $this->load->view('app/user-profile');
         $template->set('message', "Account Profile");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->set('account', $user->dump());
         $template->render();
 	}
@@ -46,7 +46,7 @@ class Account extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Account Payment Plan");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
@@ -60,7 +60,7 @@ class Account extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Help");
-        $template->set('userdata', $this->session->getData());
+        $template->set('session', $this->session->getData());
         $template->render();
 	}
     
