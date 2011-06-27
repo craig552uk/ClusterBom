@@ -40,3 +40,10 @@ $config['db_password'] = 'passw0rd';
 define('DATE_FORMAT', 'D jS M Y');
 define('TIME_FORMAT', 'H:i:s');
 define('DATETIME_FORMAT', TIME_FORMAT.' \o\n '.DATE_FORMAT);
+
+/**
+ * Strings for use throughout the appliction
+ */
+$config['str']['error']['ACCOUNT_DISABLED'] = 'Your account has been disabled, please contact technical support';
+$config['str']['error']['GOOGLE_ACCOUNT_INVALID'] = 'Google oAuth has returned an invalid response.';
+
