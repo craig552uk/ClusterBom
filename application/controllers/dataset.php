@@ -21,6 +21,9 @@ class Dataset extends Controller {
      */
 	public function showall()
     {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Show all data sets");
         $template->set('userdata', $this->session->getData());
@@ -32,6 +35,9 @@ class Dataset extends Controller {
      */
 	public function edit()
     {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Edit a dataset");
         $template->set('userdata', $this->session->getData());
@@ -43,6 +49,9 @@ class Dataset extends Controller {
      */
 	public function add()
     {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Import a dataset");
         $template->set('userdata', $this->session->getData());

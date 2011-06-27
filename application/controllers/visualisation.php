@@ -21,6 +21,9 @@ class Visualisation extends Controller {
      */
 	public function showall()
     {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Show all Visualisations");
         $template->set('userdata', $this->session->getData());
@@ -32,6 +35,9 @@ class Visualisation extends Controller {
      */
 	public function add()
     {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "Import a Visualisation");
         $template->set('userdata', $this->session->getData());
@@ -43,6 +49,9 @@ class Visualisation extends Controller {
      */
 	public function view()
     {
+        // Secure access only
+        $this->session->tryRedirect();
+        // Load view
         $template = $this->load->view('app/dummy');
         $template->set('message', "View a Visualisation");
         $template->set('userdata', $this->session->getData());
