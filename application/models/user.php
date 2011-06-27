@@ -27,5 +27,28 @@ class User extends Model {
 	    // Create object
 	    parent::__construct('user', $field);
     }
+    
+    /**
+     * Load user data by email address
+     *
+     * @param string email
+     * @retrun boolean true on success false otherwise 
+     */
+    public function loadByEmail($email){
+        // Sanitise input
+        $email = $this->escapeString($email);
+        
+        // Build and execute query
+        $query = 'SELECT pk_cust_id FROM user WHERE email=\''.$email.'\'';
+        $result = $this->query($query);
+        
+        if(isset($result[0])){
+            $this->id = $result[0]->pk_cust_id;
+            $this->load();
+            return true;
+        }
+        return false;
+    }
+    
 }
 
