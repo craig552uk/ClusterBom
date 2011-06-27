@@ -49,16 +49,5 @@ class User extends Model {
         }
         return false;
     }
-    
-    /**
-     * Increase login count by one
-     */
-    public function incLoginCount(){
-        $query = 'UPDATE user SET login_count=login_count+1 WHERE pk_cust_id='.$this->id;
-        if($this->execute($query)){
-            $this->login_count++;
-        }
-    }
-    
 }
 
