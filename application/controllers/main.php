@@ -12,6 +12,9 @@ class Main extends Controller {
      */
 	public function index()
     {
+        // Get congig array in scope;
+        global $config;
+        
         if($this->session->established()){
         
             // Load authenticated view
@@ -22,9 +25,8 @@ class Main extends Controller {
 		}elseif($this->session->error()){
 		    // Load unauthenticated view
 		    $template = $this->load->view('index');
-		    // Inject user data 
-		    // TODO filter message by error code
-		    $template->set('error', $this->session->getError());
+		    // Send error message to view
+		    $template->set('error', $config['str']['error'][$this->session->getError()]);
 		}else{
 		    // Load unauthenticated view
 		    $template = $this->load->view('index');
