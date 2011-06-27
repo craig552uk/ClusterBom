@@ -19,6 +19,12 @@ class Main extends Controller {
 
 		    // Inject user data
 		    $template->set('userdata', $this->session->getData());
+		}elseif($this->session->error()){
+		    // Load unauthenticated view
+		    $template = $this->load->view('index');
+		    // Inject user data 
+		    // TODO filter message by error code
+		    $template->set('error', $this->session->getError());
 		}else{
 		    // Load unauthenticated view
 		    $template = $this->load->view('index');
@@ -27,6 +33,21 @@ class Main extends Controller {
 		// Render View
 		$template->set('title','Welcome to ClusterBom');
         $template->render();
+	}
+	
+	public function test(){
+	
+	    $user = $this->load->model('User');
+	    
+	    $user->loadByEmail('me@me.com');
+	    $user->incLoginCount();
+	    $user->load();
+	    
+	    
+	    echo '<pre>';
+	    print_r($user->dump());
+	    echo '</pre>';
+	    
 	}
     
 }
