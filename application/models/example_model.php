@@ -7,7 +7,7 @@
  * @author Gilbert Pellegrom
  * @package PIP
  */
-class Example_model extends Model {
+class Example_model extends ModelTable {
 	
 	
 	/**

@@ -4,7 +4,7 @@
  *
  * Model representing a user in the system
  */
-class User extends Model {
+class User extends ModelTable {
 	
     /**
      * Constructor
