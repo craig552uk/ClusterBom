@@ -9,6 +9,20 @@
  */
 class Example_model extends Model {
 	
+	
+	/**
+     * Constructor
+     */
+    public function __construct(){
+    
+        // Define Database Fields
+        $field['pk_uid']  = array('type'=>'NUM', 'pk'=>true, 'alias'=>'id');
+	    $field['name']    = array('type'=>'STR');
+	    
+	    // Create object
+	    parent::__construct('user', $field);
+    }
+    
     /**
      * A sample function to retieve data from the data base
      * @param string $id An arbitrary identifier
