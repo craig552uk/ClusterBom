@@ -32,7 +32,7 @@ class Account extends Controller {
         $template = $this->load->view('app/user-profile');
         $template->set('message', "Account Profile");
         $template->set('session', $this->session->getData());
-        $template->set('account', $user->dump());
+        $template->set('account', $user);
         $template->render();
 	}
 	

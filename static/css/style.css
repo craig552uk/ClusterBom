@@ -9,6 +9,21 @@ footer,
     padding: 5px;
 }
 
+dl {
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: bold;
+    width: 200px;
+}
+
+dd {
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
 /* Error View */
 #error {
     margin: 10px;
