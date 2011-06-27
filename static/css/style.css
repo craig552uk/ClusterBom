@@ -9,6 +9,39 @@ footer,
     padding: 5px;
 }
 
+/* Navigation */
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav#account {
+    float: right;
+}
+
+header nav#main {
+    float: left;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav li {
+    display: inline;
+}
+
+header nav a,
+header nav span {
+    text-decoration: none;
+    padding: 0 5px;
+}
+
+header nav a:link {}
+header nav a:hover {}
+
+/* Lists */
+
 dl {
     margin: 10px;
     margin-bottom: 0;
