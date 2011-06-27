@@ -9,10 +9,40 @@
 <?php include('header.php'); ?>
 
 <div id="content">
-    <pre><?php 
-        print_r($public_list);
-        print_r($user_list);
-    ?></pre>
-</div>
+    <section>
+        <h1>My Data Sets</h1>
+        <ul class="datasets">
+        <?php foreach($user_list as $ds): ?>
+            <li id="ds_<?php echo $ds->pk_dataset_id; ?>">
+                <dl>
+                    <dt>Name</dt><dd><?php echo $ds->name; ?></dd>
+                    <dt>Description</dt><dd><?php echo $ds->description; ?></dd>
+                    <dt>Owner</dt><dd><?php echo $ds->goog_owner_name; ?> 
+                                  <a href="mailto:<?php echo $ds->goog_owner_email; ?>">
+                                  <?php echo $ds->goog_owner_email; ?></a></dd>
+                    <dt>Imported</dt><dd><?php echo $ds->date_uploaded; ?></dd>
+                </dl>
+            </li>
+        <? endforeach; ?>
+        </ul>
+    </section>
 
+    <section>
+        <h1>Public Data Sets</h1>
+        <ul class="datasets">
+        <?php foreach($public_list as $ds): ?>
+            <li id="ds_<?php echo $ds->pk_dataset_id; ?>">
+                <dl>
+                    <dt>Name</dt><dd><?php echo $ds->name; ?></dd>
+                    <dt>Description</dt><dd><?php echo $ds->description; ?></dd>
+                    <dt>Owner</dt><dd><?php echo $ds->goog_owner_name; ?> 
+                                  <a href="mailto:<?php echo $ds->goog_owner_email; ?>">
+                                  <?php echo $ds->goog_owner_email; ?></a></dd>
+                    <dt>Imported</dt><dd><?php echo $ds->date_uploaded; ?></dd>
+                </dl>
+            </li>
+        <? endforeach; ?>
+        </ul>
+    </section>
+</div>
 <?php include('footer.php'); ?>

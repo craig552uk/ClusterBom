@@ -57,6 +57,13 @@ dd {
     margin-bottom: 10px;
 }
 
+/* Datasets list */
+
+.datasets {
+    list-style-type: none;
+    border: 1px solid lightgrey;
+}
+
 /* Error View */
 #error {
     margin: 10px;
