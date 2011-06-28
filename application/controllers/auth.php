@@ -138,6 +138,9 @@ class Auth extends Controller {
             }else{                              // No, initiate request
                 header('Location: '.$ga->getAuthURL());
             }
+        }else{
+            // Close popup
+	        echo '<script type="text/javascript">window.close();</script>';
         }
 	}
 	
