@@ -19,11 +19,20 @@ class Auth extends Controller {
         // No default function, else OpenID response breaks
 	}
 	
+	/**
+	 * Login function
+	 * Alias for different methods
+	 */
+	public function login(){
+	    // Use OpenID
+	    $this->openid();
+	}
+	
 	/*
-	 * Function login
+	 * Authenticate with openID against Google
 	 *
 	 */
-	public function login()
+	public function openid()
 	{
 	    try{
 	        echo "Loading, Please wait...";
@@ -97,8 +106,43 @@ class Auth extends Controller {
         }
 	}
 	
+	/**
+     * Authenticate with oAuth2.0 against Google
+     */
+	public function oauth2()
+    {
+        // Get config data in scope
+        global $config;
+        
+        // Create Google oAuth object
+        $ga = $this->load->helper('Google_oAuth');
+        $ga->construct($config['oauth']['client_id'], 
+                       $config['oauth']['client_secret'], 
+                       $config['oauth']['redirect_uri'], 
+                       $config['oauth']['scope']);
+        
+        // Do we already have our tokens?
+        if( !$this->session->checkTokens() ){
+            // No, so let's go get them
+                                                // Have I just received a valid auth response?
+            if( $ga->isValidResponse()){        // Yes, so get the tokens
+            
+                // Fetch persistant tokens
+                $ga->getToken();
+                
+                // Save them in the session
+                $this->session->setTokens($ga->access_token, $ga->refresh_token);
+                
+                // Close popup
+    	        echo '<script type="text/javascript">window.close();</script>';
+            }else{                              // No, initiate request
+                header('Location: '.$ga->getAuthURL());
+            }
+        }
+	}
+	
 	/*
-	 * Function logout
+	 * End current session
 	 *
 	 */
 	public function logout()

@@ -11,6 +11,7 @@
 <div id="content">
     <section>
         <h1>My Data Sets</h1>
+        <p><a href="#" onclick="popup('<?php echo BASE_URL . 'auth/oauth2/' ?>'); return false;">Import From Google</a></p>
         <ul class="datasets">
         <?php foreach($user_list as $ds): ?>
             <li id="ds_<?php echo $ds->pk_dataset_id; ?>">
@@ -23,7 +24,7 @@
                     <dt>Imported</dt><dd><?php echo $ds->date_uploaded; ?></dd>
                 </dl>
             </li>
-        <? endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </section>
 
@@ -41,7 +42,7 @@
                     <dt>Imported</dt><dd><?php echo $ds->date_uploaded; ?></dd>
                 </dl>
             </li>
-        <? endforeach; ?>
+        <?php endforeach; ?>
         </ul>
     </section>
 </div>

@@ -79,6 +79,35 @@ class UserSession
     }
     
     /**
+     * Set oauth2.0 tokens in session
+     */
+    public function setTokens($access_token, $refresh_token){
+        $_SESSION['auth']['oauth2']['access_token']  = $access_token;
+        $_SESSION['auth']['oauth2']['refresh_token'] = $refresh_token;
+        
+        // Unset if blank
+        if($access_token == '' || $refresh_token == '')
+        {
+            unset($_SESSION['auth']['oauth2']);
+        }
+    }
+    
+    /**
+     * Get oauth2.0 tokens
+     */
+    public function getTokens(){
+        return $_SESSION['auth']['oauth2'];
+    }
+    
+    /**
+     * Check if session tokens are set
+     */
+    public function checkTokens(){
+        return     isset($_SESSION['auth']['oauth2']['access_token'])
+                && isset($_SESSION['auth']['oauth2']['refresh_token']);
+    }
+    
+    /**
      * End the current user session
      */
     public function end(){
