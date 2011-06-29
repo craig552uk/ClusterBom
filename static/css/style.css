@@ -53,16 +53,16 @@ html, body {
 #content-nav ul {
     height: 31px;
     line-height: 31px;
-    margin-bottom: -5px;
+    margin-bottom: -3px;
     margin-top: 25px;
 }
 
 #content-nav a {
-    padding: 5px 20px 0 20px;
-    margin: 0 10px;
+    padding: 5px 15px 0 15px;
+    margin-left: 20px;
     background-color: #5c5c5c;
     color: #ddd;
-    font-size: 18px;
+    font-size: 22px;
     text-shadow: 0 0 2px #393939;
 }
 
