@@ -72,8 +72,7 @@
 
 .content {
     border: 2px solid #5EBEFF;
-    border-top-width: 10px;
-    padding: 20px 20px 0 20px;
+    border-top-width: 15px;
 }
 
 footer{
@@ -90,6 +89,10 @@ footer li {
     font-size: 16px;
 }
 
+.content section{
+    padding: 20px 20px 0 20px;
+}
+
 .content section>*{
     margin-bottom: 20px;
 }
@@ -100,7 +103,39 @@ footer li {
     font-weight: normal;
 }
 
+/* Content box with a progress bar */
+.progress {
+    border-top-width: 2px;
+}
 
+.progress ul {
+    background-color: #5EBEFF;
+    padding: 10px;
+    margin: 0;
+}
+
+.progress li {
+    padding: 10px 20px 10px 15px;
+    line-height: 50px;
+    font-size: 22px;
+    color: #696969;
+    background: transparent url('../images/arrow-grey.png') no-repeat center left;
+}
+
+.progress span {
+    padding-right: 30px;
+    font-weight: bold;
+    color: #999999;
+}
+
+.progress #current {
+    color: #f9f9f9;
+    background: transparent url('../images/arrow.png') no-repeat center left;
+}
+
+.progress #current span {
+    color: #fff;
+}
 
 /* Images */
 body{

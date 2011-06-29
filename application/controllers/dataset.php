@@ -60,11 +60,13 @@ class Dataset extends Controller {
     {
         // Secure access only
         $this->session->tryRedirect();
+        
         // Load view
         $template = $this->load->view('app/dataset-add');
-        $template->set('title','Datasets');
-        $template->set('message', "Import a dataset");
+        $template->set('title','Import a Dataset');
+        $template->set('message', "Choose a worksheet from your Google Docs account");
         $template->set('session', $this->session->getData());
+        $template->set('hastokens', $this->session->checkTokens());
         $template->render();
 	}
 	

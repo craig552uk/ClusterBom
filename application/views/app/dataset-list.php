@@ -19,7 +19,7 @@
 <div class="content">
     <section>
         <h1>My Data Sets</h1>
-        <p><a href="#" onclick="popup('<?php echo BASE_URL . 'auth/oauth2/' ?>'); return false;">Import From Google</a></p>
+        <p><a href="<?php echo BASE_URL . 'dataset/add' ?>">Import From Google</a></p>
         <ul class="datasets">
         <?php foreach($user_list as $ds): ?>
             <li id="ds_<?php echo $ds->pk_dataset_id; ?>">
