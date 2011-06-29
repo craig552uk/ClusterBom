@@ -1,13 +1,29 @@
 
-/* Toggle fieldset boxes in debug section */
-$('#debug legend').click(function(){
-    $(this).nextAll().slideToggle();
+$(document).ready(function(){
+
+    /* Toggle fieldset boxes in debug section */
+    $('#debug legend').click(function(){
+        $(this).nextAll().slideToggle();
+    });
+
+    /* Toggle debug section with debug link */
+    $('#debuglink').click(function(){
+        $('#debug').slideToggle();
+    });
+
+    /* Set content to max window height on load and resize*/
+    $(window).resize(function(){resizeContent()});
+    resizeContent();
+
 });
 
-/* Toggle debug section with debug link */
-$('#debuglink').click(function(){
-    $('#debug').slideToggle();
-});
+/* Set content to max window height */
+function resizeContent(){
+    var h = $(window).height() - 130;
+    if(h>500){
+        $('.content').height(h);
+    }
+}
 
 /* 
  * Opens a popup window at provided url
