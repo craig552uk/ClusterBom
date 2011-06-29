@@ -80,6 +80,7 @@ html, body {
 .content {
     border: 2px solid #5EBEFF;
     border-top-width: 15px;
+    background-color: #F9F9F9;
 }
 
 footer{
