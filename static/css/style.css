@@ -73,7 +73,7 @@ line-height: 40px;
 #content {
     border: 2px solid #5EBEFF;
     border-top-width: 10px;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
 }
 
 footer{
