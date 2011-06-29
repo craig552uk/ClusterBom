@@ -10,7 +10,7 @@
     <ul class="hlist">
         <li><a href="<?php echo BASE_URL ?>">Dashboard</a></li>
         <li><a href="<?php echo BASE_URL . 'dataset' ?>">Datasets</a></li>
-        <li><a href="<?php echo BASE_URL . 'visualisation' ?>">Visualisations</a></li>
+        <li><a href="<?php echo BASE_URL . 'visualization' ?>">Visualizations</a></li>
     </ul>
 </nav><!-- #content-nav -->
 

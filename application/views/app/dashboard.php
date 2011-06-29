@@ -13,7 +13,7 @@
     <ul class="hlist">
         <li><a id="selected" href="<?php echo BASE_URL ?>">Dashboard</a></li>
         <li><a href="<?php echo BASE_URL . 'dataset' ?>">Datasets</a></li>
-        <li><a href="<?php echo BASE_URL . 'visualisation' ?>">Visualisations</a></li>
+        <li><a href="<?php echo BASE_URL . 'visualization' ?>">Visualizations</a></li>
     </ul>
 </nav><!-- #content-nav -->
 
@@ -43,7 +43,7 @@
                         <dd>Free<dd>
                     <dt>Dataset Allowance<dt>
                         <dd>Unlimited</dd>
-                    <dt>Visualisation Allowance<dt>
+                    <dt>Visualization Allowance<dt>
                         <dd>Unlimited</dd>
                 <dl>
                 <p><a href="#">Upgrade</a></p>

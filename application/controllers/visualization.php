@@ -1,11 +1,11 @@
 <?php
 /**
- * Visualisation Controller Class 
+ * Visualization Controller Class 
  *
  * This is the default controller
  *
  */
-class Visualisation extends Controller {
+class Visualization extends Controller {
 	
     /**
      * Default controller function
@@ -17,7 +17,7 @@ class Visualisation extends Controller {
 	}
 	
 	/**
-     * Show all Visualisations
+     * Show all Visualizations
      */
 	public function showall()
     {
@@ -25,14 +25,14 @@ class Visualisation extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
-        $template->set('title','Visualisations');
-        $template->set('message', "Show all Visualisations");
+        $template->set('title','Visualiszations');
+        $template->set('message', "Show all Visualizations");
         $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
 	/**
-     * Create a Visualisation
+     * Create a Visualization
      */
 	public function add()
     {
@@ -40,14 +40,14 @@ class Visualisation extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
-        $template->set('title','Visualisations');
-        $template->set('message', "Import a Visualisation");
+        $template->set('title','Visualizations');
+        $template->set('message', "Import a Visualization");
         $template->set('session', $this->session->getData());
         $template->render();
 	}
 	
 	/**
-     * View a Visualisation
+     * View a Visualization
      */
 	public function view()
     {
@@ -55,8 +55,8 @@ class Visualisation extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
-        $template->set('title','Visualisations');
-        $template->set('message', "View a Visualisation");
+        $template->set('title','Visualizations');
+        $template->set('message', "View a Visualization");
         $template->set('session', $this->session->getData());
         $template->render();
 	}
