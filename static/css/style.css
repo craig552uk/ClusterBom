@@ -70,7 +70,7 @@
     text-shadow: none;
 }
 
-#content {
+.content {
     border: 2px solid #5EBEFF;
     border-top-width: 10px;
     padding: 20px 20px 0 20px;
@@ -86,15 +86,15 @@ footer li {
 
 /* Fonts and Text layout */
 
-#content {
+.content {
     font-size: 16px;
 }
 
-#content section>*{
+.content section>*{
     margin-bottom: 20px;
 }
 
-#content h1{
+.content h1{
     font-size: 36px;
     border-bottom: 2px solid #5c5c5c;
     font-weight: normal;
@@ -122,12 +122,12 @@ body{
 }
 
 /* list styles */
-#content dt {
+.content dt {
     font-weight: bold;
 }
 
-#content dd,
-#content li {
+.content dd,
+.content li {
     margin-bottom: 10px;
 }
 

@@ -16,7 +16,7 @@
     </ul>
 </nav><!-- #content-nav -->
 
-<div id="content">
+<div class="content">
     <section>
         <h1>My Data Sets</h1>
         <p><a href="#" onclick="popup('<?php echo BASE_URL . 'auth/oauth2/' ?>'); return false;">Import From Google</a></p>
@@ -53,7 +53,7 @@
         <?php endforeach; ?>
         </ul>
     </section>
-</div><!-- #content -->
+</div><!-- .content -->
 
 
 <?php include('footer.php'); ?>

@@ -23,7 +23,7 @@
             <li><a id="selected" href="<?php echo BASE_URL ?>">Log In</a></li>
         </ul>
     </nav><!-- #content-nav -->
-    <div id="content">
+    <div class="content">
         <section>
             <h1>Welcome to ClusterBom</h1>
             <?php if(isset($error)): /* Display error if set */ ?>
@@ -31,6 +31,6 @@
             <?php endif; ?>
             <p><a href="#" onclick="popup('<?php echo BASE_URL . 'auth/login/' ?>'); return false;">login</a></p>
         </section>
-    </div><!-- #content -->
+    </div><!-- .content -->
     
 <?php include('footer.php'); ?>

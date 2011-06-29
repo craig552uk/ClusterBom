@@ -13,11 +13,11 @@
         <li><a href="<?php echo BASE_URL . 'visualisation' ?>">Visualisations</a></li>
     </ul>
 </nav><!-- #content-nav -->
-<div id="content">
+<div class="content">
     <section class="error">
         <h1><?php echo ( isset($title)) ? $title : ''; ?></h1>
         <p><?php echo ( isset($message)) ? $message : ''; ?></p>
     </section>
-</div><!-- #content -->
+</div><!-- .content -->
 
 <?php include('footer.php'); ?>

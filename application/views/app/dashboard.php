@@ -17,10 +17,10 @@
     </ul>
 </nav><!-- #content-nav -->
 
-<div id="content">
+<div class="content">
     <section>
         <h1>Welcome to ClusterBom</h1>
     </section>
-</div><!-- #content -->
+</div><!-- .content -->
 
 <?php include('footer.php'); ?>

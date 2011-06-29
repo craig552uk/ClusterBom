@@ -14,7 +14,7 @@
     </ul>
 </nav><!-- #content-nav -->
 
-<div id="content">
+<div class="content">
     <section>
         <h1>My Account</h1>
         <dl>
@@ -22,5 +22,5 @@
             <dt>Email</dt><dd><?php echo $account->email; ?></dd>
         </dl>
     </section>
-</div><!-- #content -->
+</div><!-- .content -->
 <?php include('footer.php'); ?>

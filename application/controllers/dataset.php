@@ -61,7 +61,7 @@ class Dataset extends Controller {
         // Secure access only
         $this->session->tryRedirect();
         // Load view
-        $template = $this->load->view('app/dummy');
+        $template = $this->load->view('app/dataset-add');
         $template->set('title','Datasets');
         $template->set('message', "Import a dataset");
         $template->set('session', $this->session->getData());
