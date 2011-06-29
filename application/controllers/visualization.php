@@ -25,7 +25,7 @@ class Visualization extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
-        $template->set('title','Visualiszations');
+        $template->set('title','Visualizations');
         $template->set('message', "Show all Visualizations");
         $template->set('session', $this->session->getData());
         $template->render();
