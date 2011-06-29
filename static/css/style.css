@@ -24,7 +24,7 @@
 }
 
 #topbar li {
-line-height: 40px;
+    line-height: 40px;
     text-shadow: 0 0 2px #393939;
 }
 
@@ -95,8 +95,9 @@ footer li {
 }
 
 #content h1{
-    font-size: 22px;
+    font-size: 36px;
     border-bottom: 2px solid #5c5c5c;
+    font-weight: normal;
 }
 
 
