@@ -24,12 +24,12 @@ class Main extends Controller {
 		    $template->set('session', $this->session->getData());
 		}elseif($this->session->error()){
 		    // Load unauthenticated view
-		    $template = $this->load->view('index');
+		    $template = $this->load->view('app/login');
 		    // Send error message to view
 		    $template->set('error', $config['str']['error'][$this->session->getError()]);
 		}else{
 		    // Load unauthenticated view
-		    $template = $this->load->view('index');
+		    $template = $this->load->view('app/login');
 		}
 		
 		// Render View

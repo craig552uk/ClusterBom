@@ -4,6 +4,11 @@ $('#debug legend').click(function(){
     $(this).nextAll().slideToggle();
 });
 
+/* Toggle debug section with debug link */
+$('#debuglink').click(function(){
+    $('#debug').slideToggle();
+});
+
 /* 
  * Opens a popup window at provided url
  * Reloads the page when the window closes

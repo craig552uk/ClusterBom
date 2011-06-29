@@ -1,107 +1,125 @@
-/* CSS Styles */
 
-/* Primary Layout */
-header,
-footer,
-#content {
-    border: 1px solid #888;
-    margin: 10px;
-    padding: 5px;
+/* General layout */
+#wrapper {
+    width: 1000px;
+    margin: auto;
 }
 
-/* Navigation */
-
-header nav {
-    margin-top: 10px;
+#topbar {
+    font-size: 16px;
+    height: 40px;
 }
 
-header nav#account {
+#topbar #logo {
+    float: left;
+    text-decoration: none;
+    display: block;
+    width: 150px;
+    height: 40px;
+    color: transparent;
+}
+
+#topbar ul {
     float: right;
 }
 
-header nav#main {
-    float: left;
+#topbar li {
+line-height: 40px;
+    text-shadow: 0 0 2px #393939;
 }
 
-header nav ul {
+#topbar li a {
+    color: #5EBEFF;
+    padding: 10px;
+}
+
+#topbar li a:hover {
+    color: #CFCFCF;
+    background-color: #393939;
+}
+
+#topbar span {
+    color: #d9d9d9;
+    padding: 10px;
+}
+
+#content-nav ul {
+    height: 31px;
+    line-height: 31px;
+    margin-bottom: -5px;
+    margin-top: 25px;
+}
+
+#content-nav a {
+    padding: 10px 20px 0 20px;
+    margin: 0 10px;
+    background-color: #5c5c5c;
+    color: #ddd;
+    font-size: 18px;
+    text-shadow: 0 0 2px #393939;
+}
+
+#content-nav a:hover {
+    color: #5EBEFF;
+    background-color: #393939;
+}
+
+#content-nav a#selected {
+    background-color: #5EBEFF;
+    color: #393939;
+    text-shadow: none;
+}
+
+#content {
+    border: 2px solid #5EBEFF;
+    border-top-width: 10px;
+    padding: 20px;
+}
+
+footer{
+    margin-top: 5px;
+}
+
+footer li {
+    margin-right: 10px;
+}
+
+/* Images */
+body{
+    background: #ffffff url('../images/topbar1.png') repeat-x top left;
+}
+
+/* Horizontal list */
+.hlist {
     list-style-type: none;
+    margin: 0;
 }
 
-header nav li {
+.hlist li {
     display: inline;
 }
 
-header nav a,
-header nav span {
+.hlist a {
     text-decoration: none;
-    padding: 0 5px;
-}
-
-header nav a:link {}
-header nav a:hover {}
-
-/* Lists */
-
-dl {
-    margin: 10px;
-    margin-bottom: 0;
-}
-
-dt {
-    font-weight: bold;
-    width: 200px;
-}
-
-dd {
-    padding-left: 10px;
-    margin-bottom: 10px;
-}
-
-/* Datasets list */
-
-.datasets {
-    list-style-type: none;
-    border: 1px solid lightgrey;
-}
-
-/* Error View */
-#error {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid red;
-}
-
-#error h1 {
-    font-size: 24px;
-}
-
-#error p {
-    font-size: 16px;
 }
 
 /* Debug view */
-#debug p,
-#debug fieldset{
-    margin: 10px;
-}
 
-#debug fieldset{
-    border: 1px solid #999;
-    padding: 5px;
+#debug {
+    display: none;
 }
 
 #debug legend{
     font-weight: bold;
-    margin-left: 5px;
     cursor: pointer;
 }
 
-#debug fieldset * {
+#debug fieldset {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+#debug pre {
     display: none;
-    color: #999;
 }
-
-#debug legend {
-    display: block;
-}
-

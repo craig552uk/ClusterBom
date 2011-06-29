@@ -5,7 +5,9 @@
  *
  */
 ?>
-<?php include('debug.php'); /* Debug data on every page */ ?>  
+    <?php include('debug.php'); /* Debug data on every page */ ?>  
+
+    </div><!-- #wrapper -->
 
     <script src="<?php echo BASE_URL; ?>static/js/libs/jquery-1.5.1.min.js"></script>
     <script src="<?php echo BASE_URL; ?>static/js/script.js"></script>

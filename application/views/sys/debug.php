@@ -1,12 +1,5 @@
 <?php if(DEBUG): ?>
 <section id="debug">
-    <fieldset>
-    <legend>Debug Data</legend>
-        
-        <p>Data displayed in this section can be edited in the debug.php view 
-           file. Debugging is enabled by a global variable set in the index.php
-           file in the root directory.</p>
-    
         <?php
             debug_block('Session Data', $_SESSION);
             debug_block('GET Data', $_GET);
@@ -16,8 +9,6 @@
             global $url_processing;
             debug_block('URL Processing', $url_processing);
         ?>
-    
-    </fieldset>
 </section>
 <?php endif; ?>
 <?php

@@ -29,3 +29,4 @@
     <script src="<?php echo BASE_URL; ?>static/js/libs/modernizr-1.7.min.js"></script>
 </head>
 <body>
+<div id="wrapper">
