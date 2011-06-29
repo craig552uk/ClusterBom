@@ -23,6 +23,9 @@ function resizeContent(){
     if(h>500){
         $('.content').height(h);
     }
+    
+    var w = $('.content').width() - 60;
+    $('.column').width(w/2);
 }
 
 /* 

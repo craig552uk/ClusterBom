@@ -90,6 +90,18 @@ footer li {
     margin-right: 10px;
 }
 
+/* Content Columns */
+
+.column.left {
+    float: left;
+    padding-right: 10px;
+}
+
+.column.right {
+    float: right;
+    padding-left: 10px;
+}
+
 /* Fonts and Text layout */
 
 .content {
