@@ -24,7 +24,8 @@ class Error extends Controller {
 	function error404()
 	{
 		// Load and render error view
-		$template = $this->load->view('sys/error');
+		$template = $this->load->view('app/error');
+		$template->set('session', $this->session->getData());
 		$template->set('title','404 Error');
 		$template->set('message','Looks like this page doesn\'t exist');
         $template->render();

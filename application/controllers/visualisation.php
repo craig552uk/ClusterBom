@@ -25,6 +25,7 @@ class Visualisation extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
+        $template->set('title','Visualisations');
         $template->set('message', "Show all Visualisations");
         $template->set('session', $this->session->getData());
         $template->render();
@@ -39,6 +40,7 @@ class Visualisation extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
+        $template->set('title','Visualisations');
         $template->set('message', "Import a Visualisation");
         $template->set('session', $this->session->getData());
         $template->render();
@@ -53,6 +55,7 @@ class Visualisation extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
+        $template->set('title','Visualisations');
         $template->set('message', "View a Visualisation");
         $template->set('session', $this->session->getData());
         $template->render();

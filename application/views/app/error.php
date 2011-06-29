@@ -14,7 +14,7 @@
     </ul>
 </nav><!-- #content-nav -->
 <div id="content">
-    <section>
+    <section class="error">
         <h1><?php echo ( isset($title)) ? $title : ''; ?></h1>
         <p><?php echo ( isset($message)) ? $message : ''; ?></p>
     </section>

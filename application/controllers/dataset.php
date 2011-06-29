@@ -47,6 +47,7 @@ class Dataset extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
+        $template->set('title','Datasets');
         $template->set('message', "Edit a dataset");
         $template->set('session', $this->session->getData());
         $template->render();
@@ -61,6 +62,7 @@ class Dataset extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
+        $template->set('title','Datasets');
         $template->set('message', "Import a dataset");
         $template->set('session', $this->session->getData());
         $template->render();
@@ -75,6 +77,7 @@ class Dataset extends Controller {
         $this->session->tryRedirect();
         // Load view
         $template = $this->load->view('app/dummy');
+        $template->set('title','Datasets');
         $template->set('message', "View a dataset");
         $template->set('session', $this->session->getData());
         $template->render();
