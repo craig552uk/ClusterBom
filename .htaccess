@@ -67,3 +67,4 @@ AddType application/octet-stream       safariextz
 # Pcustom Error Pages
 # ----------------------------------------------------------------------
 ErrorDocument 404 /ClusterBom/error/error404
+ErrorDocument 403 /ClusterBom/error/error403

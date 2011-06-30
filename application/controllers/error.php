@@ -30,6 +30,19 @@ class Error extends Controller {
 		$template->set('message','Looks like this page doesn\'t exist');
         $template->render();
 	}
+	
+	/**
+     * Displays 404 'File Not Found' error
+     */
+	function error403()
+	{
+		// Load and render error view
+		$template = $this->load->view('app/error');
+		$template->set('session', $this->session->getData());
+		$template->set('title','403 Error');
+		$template->set('message','Sorry, you can\'t access that page');
+        $template->render();
+	}
     
 }
 
