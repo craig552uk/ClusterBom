@@ -28,3 +28,5 @@
         <p><input type="submit" name="submit" id="submit" value="Sign Up"/></p>
     </form> 
 </section>
+
+<?php if(DEBUG): ?><li><a id="debuglink" href="#">Debug</a></li><?php endif; ?>
