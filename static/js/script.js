@@ -19,11 +19,12 @@ $(document).ready(function(){
 
 /* Set content to max window height */
 function resizeContent(){
+    /* Don't want fluid height right now
     var h = $(window).height() - 130;
     if(h>500){
         $('.content').height(h);
     }
-    
+    */
     var w = $('.content').width() - 60;
     $('.column').width(w/2);
 }
