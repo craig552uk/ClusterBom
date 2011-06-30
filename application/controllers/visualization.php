@@ -22,12 +22,13 @@ class Visualization extends Controller {
 	public function showall()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('title','Visualizations');
         $template->set('message', "Show all Visualizations");
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         $template->render();
 	}
 	
@@ -37,12 +38,13 @@ class Visualization extends Controller {
 	public function add()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('title','Visualizations');
         $template->set('message', "Import a Visualization");
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         $template->render();
 	}
 	
@@ -52,12 +54,13 @@ class Visualization extends Controller {
 	public function view()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('title','Visualizations');
         $template->set('message', "View a Visualization");
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         $template->render();
 	}
     

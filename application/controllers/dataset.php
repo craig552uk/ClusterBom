@@ -20,7 +20,7 @@ class Dataset extends Controller {
 	public function all()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Create dataset object
         $dataset_list = $this->load->model('DataSetList');
@@ -34,7 +34,7 @@ class Dataset extends Controller {
         $template = $this->load->view('app/dataset-list');
         $template->set('public_list', $public_list);
         $template->set('user_list', $user_list);
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         $template->render();
 	}
 	
@@ -44,12 +44,13 @@ class Dataset extends Controller {
 	public function edit()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('title','Datasets');
         $template->set('message', "Edit a dataset");
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         $template->render();
 	}
 	
@@ -59,13 +60,13 @@ class Dataset extends Controller {
 	public function add()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dataset-add');
         $template->set('title','Import a Dataset');
         $template->set('message', "Choose a worksheet from your Google Docs account");
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         
         // Check if we have tokens to access spreadsheets
         if($this->session->checkTokens()){
@@ -93,12 +94,13 @@ class Dataset extends Controller {
 	public function view()
     {
         // Secure access only
-        $this->session->tryRedirect();
+        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('title','Datasets');
         $template->set('message', "View a dataset");
-        $template->set('session', $this->session->getData());
+        $template->set('session', $this->session);
         $template->render();
 	}
     

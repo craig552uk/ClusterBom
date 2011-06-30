@@ -176,13 +176,13 @@ class ModelTable extends ModelDB{
                     $query .= $k.'='.$this->to_bool($f['value']).',';
                     break;
                 case 'DATE':
-                    $query .= $k.'='.$this->to_date($f['value']).',';
+                    $query .= $k.'=\''.$this->to_date($f['value']).'\',';
                     break;
                 case 'TIME':
-                    $query .= $k.'='.$this->to_time($f['value']).',';
+                    $query .= $k.'=\''.$this->to_time($f['value']).'\',';
                     break;
                 case 'DATETIME':
-                    $query .= $k.'='.$this->to_datetime($f['value']).',';
+                    $query .= $k.'=\''.$this->to_datetime($f['value']).'\',';
                     break;
                 default: // STRING
                     $query .= $k.'=\''.$f['value'].'\',';
@@ -193,6 +193,8 @@ class ModelTable extends ModelDB{
 	    
 	    // Append WHERE clause to UPDATE
 	    $query .= ($this->field[$this->pk]['value']) ? ' WHERE '.$this->pk.'='.$this->field[$this->pk]['value'] : '';
+
+    echo $query;
 
 	    // Execute query
 	    $this->execute($query);
