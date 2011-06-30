@@ -82,13 +82,13 @@ class UserSession
      * Set oauth2.0 tokens in session
      */
     public function setTokens($access_token, $refresh_token){
-        $_SESSION['auth']['oauth2']['access_token']  = $access_token;
-        $_SESSION['auth']['oauth2']['refresh_token'] = $refresh_token;
+        $_SESSION['auth']['access_token']  = $access_token;
+        $_SESSION['auth']['refresh_token'] = $refresh_token;
         
         // Unset if blank
         if($access_token == '' || $refresh_token == '')
         {
-            unset($_SESSION['auth']['oauth2']);
+            unset($_SESSION['auth']);
         }
     }
     
@@ -96,15 +96,15 @@ class UserSession
      * Get oauth2.0 tokens
      */
     public function getTokens(){
-        return $_SESSION['auth']['oauth2'];
+        return $_SESSION['auth'];
     }
     
     /**
      * Check if session tokens are set
      */
     public function checkTokens(){
-        return     isset($_SESSION['auth']['oauth2']['access_token'])
-                && isset($_SESSION['auth']['oauth2']['refresh_token']);
+        return     isset($_SESSION['auth']['access_token'])
+                && isset($_SESSION['auth']['refresh_token']);
     }
     
     /**

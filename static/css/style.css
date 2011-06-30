@@ -128,13 +128,13 @@ footer li {
     border-top-width: 2px;
 }
 
-.progress ul {
+.progress .hlist {
     background-color: #5EBEFF;
     padding: 10px;
     margin: 0;
 }
 
-.progress li {
+.progress .hlist li {
     padding: 10px 20px 10px 15px;
     line-height: 50px;
     font-size: 22px;
@@ -142,18 +142,18 @@ footer li {
     background: transparent url('../images/arrow-grey.png') no-repeat center left;
 }
 
-.progress span {
+.progress .hlist span {
     padding-right: 30px;
     font-weight: bold;
     color: #999999;
 }
 
-.progress #current {
+.progress .hlist #current {
     color: #f9f9f9;
     background: transparent url('../images/arrow.png') no-repeat center left;
 }
 
-.progress #current span {
+.progress .hlist #current span {
     color: #fff;
 }
 

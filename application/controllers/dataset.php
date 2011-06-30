@@ -66,7 +66,24 @@ class Dataset extends Controller {
         $template->set('title','Import a Dataset');
         $template->set('message', "Choose a worksheet from your Google Docs account");
         $template->set('session', $this->session->getData());
-        $template->set('hastokens', $this->session->checkTokens());
+        
+        // Check if we have tokens to access spreadsheets
+        if($this->session->checkTokens()){
+            // Get spreadsheet data
+            $gss = $this->load->helper('Google_Spreadsheets');
+            $gss->setToken($this->session->access_token);
+            $spreadsheets = $gss->spreadsheets();
+            
+            // Set vars in view
+            $template->set('hastokens', true);
+            $template->set('spreadsheets', $spreadsheets);
+        
+        }else{
+            // Set vars in view
+            $template->set('hastokens', false);
+        }
+        
+        // Render view
         $template->render();
 	}
 	
