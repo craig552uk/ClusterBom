@@ -50,7 +50,7 @@ class Auth extends Controller {
         }
         
         // Error password failure
-        $password = sha1('RdGBEe8scaJx'.$password);
+        $password = sha1('RdGBEe8scaJx'.$user->id.$password);
         if($user->password != $password ){
             $login_error = 'Unknown email/password';
         }

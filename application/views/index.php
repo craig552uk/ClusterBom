@@ -20,10 +20,10 @@
 
 <section>
     <h1>Sign Up</h1>
-    <form method="post" action="<?php echo BASE_URL ?>signup/">
+    <form method="post" action="<?php echo BASE_URL ?>account/register/">
         <?php if(isset($signup_error)): ?><p class="error"><?php echo $signup_error; ?></p><?php endif; ?>
         <p><label for="name">Full Name</label><input type="text" name="name" id="name"/></p>
-        <p><label for="email">Email</label><input type="email" name="email" id="email"/></p>
+        <p><label for="email">Email</label><input type="text" name="email" id="email"/></p>
         <p><label for="password">Password</label><input type="password" name="password" id="password"/></p>
         <p><input type="submit" name="submit" id="submit" value="Sign Up"/></p>
     </form> 
