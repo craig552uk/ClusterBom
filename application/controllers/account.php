@@ -22,7 +22,7 @@ class Account extends Controller {
 	public function profile()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Get user data
         $user = $this->load->model('User');
@@ -43,7 +43,7 @@ class Account extends Controller {
 	public function plan()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');
@@ -59,7 +59,7 @@ class Account extends Controller {
 	public function help()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');

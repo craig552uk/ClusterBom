@@ -22,7 +22,7 @@ class Visualization extends Controller {
 	public function showall()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');
@@ -38,7 +38,7 @@ class Visualization extends Controller {
 	public function add()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');
@@ -54,7 +54,7 @@ class Visualization extends Controller {
 	public function view()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');

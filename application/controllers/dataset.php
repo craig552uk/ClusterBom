@@ -20,7 +20,7 @@ class Dataset extends Controller {
 	public function all()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Create dataset object
         $dataset_list = $this->load->model('DataSetList');
@@ -44,7 +44,7 @@ class Dataset extends Controller {
 	public function edit()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');
@@ -60,7 +60,7 @@ class Dataset extends Controller {
 	public function add()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dataset-add');
@@ -94,7 +94,7 @@ class Dataset extends Controller {
 	public function view()
     {
         // Secure access only
-        if($this->session->isAuth()) { header('Location: '.BASE_URL); }
+        if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
         $template = $this->load->view('app/dummy');
