@@ -24,13 +24,59 @@ class Auth extends Controller {
 	 * Alias for different methods
 	 */
 	public function login(){
-	    // Use OpenID
-	    $this->openid();
+	    // Use username and password
+	    $this->unamepass();
 	}
+	
+	/**
+	 * Login with username and password
+	 */
+    public function unamepass(){
+        
+        // Get params from submitted form
+        $email    = (isset($_POST['email']))    ? $_POST['email'] : '';
+        $password = (isset($_POST['password'])) ? $_POST['password'] : '';
+        $remember = (isset($_POST['remember'])) ? true : false;
+        
+        // Error missing values
+        if(($email == '') || ($password == '')){
+            $login_error = 'Unknown email/password';
+        }
+        
+        // Error user failure
+        $user = $this->load->model('User');
+        if(!$user->loadByEmail( $email )){
+            $login_error = 'Unknown email/password';
+        }
+        
+        // Error password failure
+        $password = sha1('RdGBEe8scaJx'.$user->id.$password);
+        if($user->password != $password ){
+            $login_error = 'Unknown email/password';
+        }
+        
+        // Test for errors
+        if(isset($login_error)){
+            // Login Error
+            $view = $this->load->view('index');
+            $view->set('login_error', $login_error);
+            $view->render();
+        }else{
+            // Create session
+            $this->session->create($email, $user->name);
+            // Increment count
+            $user->login_count++;   // Increment login count
+            $user->save();
+            // TODO store data in cookie to remember login
+            // Go home
+            header('Location: '.BASE_URL);
+        }
+                
+    }
 	
 	/*
 	 * Authenticate with openID against Google
-	 *
+	 * DEPRECATED - FOR NOW
 	 */
 	public function openid()
 	{
@@ -69,7 +115,7 @@ class Auth extends Controller {
 	                        $goog_data['clusterbom/pk_cust_id'] = $user->id;
 	                    
 	                        // Start session
-        	                $this->session->create($goog_id, $goog_data);
+        	                $this->session->createOpenID($goog_id, $goog_data);
 	                    }else{
 	                        // Account disabled
 	                        $this->session->setError('ACCOUNT_DISABLED');
@@ -87,7 +133,7 @@ class Auth extends Controller {
 	                    $goog_data['clusterbom/pk_cust_id'] = $user->id;
 	                    
 	                    // Start session
-    	                $this->session->create($goog_id, $goog_data);
+    	                $this->session->createOpenID($goog_id, $goog_data);
 	                }
 	            }else{
 	                // Not validated by Google
@@ -153,7 +199,7 @@ class Auth extends Controller {
 	    // End session
 	    $this->session->end();
 	    // Redirect back home
-	    $this->session->goHome();
+	    header('Location: '.BASE_URL);
 	}
     
 }

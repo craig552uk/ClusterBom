@@ -10,11 +10,35 @@ class UserSession
 {
     
     /*
+     * Create a user session, providing their details
+     *
+     * @param string $email  User email
+     * @param string $name   User real name
+     * @param array  $extras Array of extra vaues to store
+     */
+    public function create($email, $name, $extras=array()){
+        $_SESSION['auth']['state'] = 'AUTHENTICATED';
+        $_SESSION['auth']['email'] = $email;
+        $_SESSION['auth']['name']  = $name;
+        $_SESSION['auth']['time']  = time();
+        foreach($extras as $k=>$v){
+            $_SESSION['auth'][$k] = $v;
+        }
+    }
+           
+    /**
+     * End the current user session
+     */
+    public function end(){
+        unset($_SESSION['auth']);
+    }
+    
+    /*
      * Is a session established
      *
      * @return boolean  True if a user session is established
      */
-    public function established()
+    public function isAuth()
     {
         return isset($_SESSION['auth']['state']) && $_SESSION['auth']['state'] == 'AUTHENTICATED';
     }
@@ -24,7 +48,7 @@ class UserSession
      *
      * @return boolean  True if a user session is established
      */
-    public function error()
+    public function isError()
     {
         return isset($_SESSION['auth']['state']) && $_SESSION['auth']['state'] == 'ERROR';
     }
@@ -32,105 +56,12 @@ class UserSession
     /**
      * Set error code
      */
-    public function setError($code='UNKNOWN')
+    public function setErrorCode($code='UNKNOWN')
     {
         $_SESSION['auth']['state'] = 'ERROR';
         $_SESSION['auth']['error_code'] = $code;
     }
-    
-    /**
-     * Get error code
-     */
-    public function getError()
-    {
-        return $_SESSION['auth']['error_code'];
-    }
-    
-    /**
-     * Check current authentication, if not established redirect to base
-     */
-    public function tryRedirect(){
-        if(!$this->established()){
-            $this->goHome();
-        }
-    }
-    
-    /**
-     * Redirect back home
-     */
-    public function goHome(){
-        header('Location: '.BASE_URL);
-    }
-    
-    /*
-     * Create a user session, providing their details
-     *
-     * @param string $email  User email
-     * @param string $uri    Users google uri
-     */
-    public function create($uri, $userData){
-        $_SESSION['auth']['state'] = 'AUTHENTICATED';
-        $_SESSION['auth']['email'] = $userData['contact/email'];
-        $_SESSION['auth']['fname'] = $userData['namePerson/first'];
-        $_SESSION['auth']['sname'] = $userData['namePerson/last'];
-        $_SESSION['auth']['uri']   = $uri;
-        $_SESSION['auth']['id']    = $userData['clusterbom/pk_cust_id'];
-        $_SESSION['auth']['time']  = time();
-    }
-    
-    /**
-     * Set oauth2.0 tokens in session
-     */
-    public function setTokens($access_token, $refresh_token){
-        $_SESSION['auth']['access_token']  = $access_token;
-        $_SESSION['auth']['refresh_token'] = $refresh_token;
-        
-        // Unset if blank
-        if($access_token == '' || $refresh_token == '')
-        {
-            unset($_SESSION['auth']);
-        }
-    }
-    
-    /**
-     * Get oauth2.0 tokens
-     */
-    public function getTokens(){
-        return $_SESSION['auth'];
-    }
-    
-    /**
-     * Check if session tokens are set
-     */
-    public function checkTokens(){
-        return     isset($_SESSION['auth']['access_token'])
-                && isset($_SESSION['auth']['refresh_token']);
-    }
-    
-    /**
-     * End the current user session
-     */
-    public function end(){
-        unset($_SESSION['auth']);
-    }
-    
-    /**
-     * Get data for logged in user
-     * 
-     * @return object   Object of user session data
-     */
-    public function getData(){
-        $obj = null;
-        if(isset($_SESSION['auth'])){
-            $obj->email = $_SESSION['auth']['email'];
-            $obj->fname = $_SESSION['auth']['fname'];
-            $obj->sname = $_SESSION['auth']['sname'];
-            $obj->uri   = $_SESSION['auth']['uri'];
-            $obj->time  = $_SESSION['auth']['time'];
-        }
-        return $obj;
-    }
-    
+       
     /**
      * Direct access to stored data
      */
@@ -139,6 +70,23 @@ class UserSession
             return $_SESSION['auth'][$param];
         }
         return 0;
+    }
+    
+    /**
+     * Direct access to stored data
+     */
+    public function __set($param, $value){
+        if(!isset($_SESSION['auth'][$param])){
+            $_SESSION['auth'] = array();
+        }
+        switch($param){
+            case 'error_code':
+                $_SESSION['auth']['state']      = 'ERROR';
+                $_SESSION['auth']['error_code'] = $code;
+                break;
+            default:
+                $_SESSION['auth'][$param]       = $value;
+        }
     }
 
 }

@@ -1,20 +1,22 @@
 -- Drop all tables
-DROP TABLE IF EXISTS user, payment_plan, data_file, data_field, data_cell, cluster_visualisation, cluster, cells_in_clusters;
+DROP TABLE IF EXISTS user, customer, payment_plan, data_file, data_field, data_cell, cluster_visualisation, cluster, cells_in_clusters;
 
 -- User table definition
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS customer (
     pk_cust_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    goog_id VARCHAR(128) NOT NULL,
-    fname VARCHAR(32),
-    sname VARCHAR(32),
+    name VARCHAR(32),
     email VARCHAR(128) NOT NULL,
-    administrator BOOLEAN DEFAULT 0,
+    password VARCHAR(128) NOT NULL,
+    account_created TIMESTAMP DEFAULT NOW(),
+    last_login TIMESTAMP DEFAULT '0000-00-00 00:00:00',
     account_enabled BOOLEAN DEFAULT 1,
     login_count INT DEFAULT 0,
     fk_plan_id INT,
-    credit INT DEFAULT 0,
-    unpaid_alert BOOLEAN DEFAULT 0
+    credit INT DEFAULT 0
     )ENGINE=INNODB;
+
+-- Insert default user password:passw0rd
+INSERT INTO customer (name, email, password) VALUES ('Mr Default', 'me@me.com', '091269982cfd5f2d36eedbb5f9900d8acdf4f96f');
     
 -- Payment plan table
 CREATE TABLE IF NOT EXISTS payment_plan (

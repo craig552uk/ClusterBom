@@ -13,19 +13,18 @@ class User extends ModelTable {
     
         // Define Database Fields
         $field['pk_cust_id']      = array('type'=>'NUM', 'pk'=>true, 'alias'=>'id');
-	    $field['goog_id']         = array('type'=>'STR');
-	    $field['fname']           = array('type'=>'STR');
-	    $field['sname']           = array('type'=>'STR');
+	    $field['name']            = array('type'=>'STR');
 	    $field['email']           = array('type'=>'STR');
-	    $field['administrator']   = array('type'=>'BOOL');
+	    $field['password']        = array('type'=>'STR');
+	    $field['account_created'] = array('type'=>'DATETIME');
+	    $field['last_login']      = array('type'=>'DATETIME');
 	    $field['account_enabled'] = array('type'=>'BOOL', 'alias'=>'enabled');
 	    $field['login_count']     = array('type'=>'NUM');
 	    $field['fk_plan_id']      = array('type'=>'NUM', 'alias'=>'plan_id');
 	    $field['credit']          = array('type'=>'NUM');
-	    $field['unpaid_alert']    = array('type'=>'BOOL');
 	    
 	    // Create object
-	    parent::__construct('user', $field);
+	    parent::__construct('customer', $field);
     }
     
     /**
@@ -39,7 +38,7 @@ class User extends ModelTable {
         $email = $this->escapeString($email);
         
         // Build and execute query
-        $query = 'SELECT pk_cust_id FROM user WHERE email=\''.$email.'\'';
+        $query = 'SELECT pk_cust_id FROM customer WHERE email=\''.$email.'\'';
         $result = $this->query($query);
         
         if(isset($result[0])){
