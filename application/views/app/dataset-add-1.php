@@ -23,9 +23,20 @@
                 <p>ClusterBom can import data from Google Docs.</p>
                 <p><a href="#" onclick="popup('<?php echo BASE_URL.'auth/oauth2/'; ?>'); return false;">Login to Google</a></p>
             </div>
-        <?php else: ?>
+        <?php else: /*TODO Load spreadsheets list asynchronously */ ?>
             <div class="spreadsheets">
-                spreadsheet data
+                <ul>
+                <?php foreach($spreadsheets as $s): ?>
+                    <li>:: 
+                    <strong><?php echo $s->title; ?></strong> 
+                    <a href="mailto:<?php echo $s->author->email; ?>"><?php echo $s->author->name; ?></a>
+                    </li>
+                    <!--<p><?php echo $s->uri; ?></p>
+                    <p><?php echo $s->updated; ?></p>
+                    <p><?php echo $s->author->name; ?></p>
+                    <p><?php echo $s->author->email; ?></p>-->
+                <?php endforeach; ?>
+                </ul>
             </div>
 
             <form>

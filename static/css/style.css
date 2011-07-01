@@ -194,6 +194,17 @@ footer {
     padding: 10px;
 }
 
+.spreadsheets ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spreadsheets li {
+    padding: 5px;
+    border-bottom: 1px solid #999999;
+}
+
 /* Gogole import button */
 
 #goog_import_button {    
