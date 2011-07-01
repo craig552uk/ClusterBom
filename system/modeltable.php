@@ -194,8 +194,6 @@ class ModelTable extends ModelDB{
 	    // Append WHERE clause to UPDATE
 	    $query .= ($this->field[$this->pk]['value']) ? ' WHERE '.$this->pk.'='.$this->field[$this->pk]['value'] : '';
 
-    echo $query;
-
 	    // Execute query
 	    $this->execute($query);
 	    
