@@ -106,6 +106,9 @@ class Auth extends Controller {
         $email    = (isset($_POST['email']))    ? $_POST['email'] : '';
         $password = (isset($_POST['password'])) ? $_POST['password'] : '';
         
+        // Create user model
+        $user = $this->load->model('User');
+        
         // Sanity check
         if(($name==='')||($email==='')||($password==='')){
             $signup_error = 'All fields are required';
@@ -119,6 +122,11 @@ class Auth extends Controller {
         // Password Length TODO use decent policy
         elseif(strlen($password) < 8){
             $signup_error = 'Password must be at least 8 characters';
+        }
+        
+        // Error user exists
+        elseif($user->loadByEmail( $email )){
+            $signup_error = 'Email already taken';
         }
         
         // Form validation
