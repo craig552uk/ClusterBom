@@ -7,17 +7,9 @@
  */
 ?>
 
-<?php include('header.php'); ?>
+<?php include(APP_DIR.'views/sys/header.php'); ?>
 	
-<nav id="content-nav">
-    <ul class="hlist">
-        <li><a id="selected" href="<?php echo BASE_URL ?>">Dashboard</a></li>
-        <li><a href="<?php echo BASE_URL . 'dataset' ?>">Datasets</a></li>
-        <li><a href="<?php echo BASE_URL . 'visualization' ?>">Visualizations</a></li>
-    </ul>
-</nav><!-- #content-nav -->
-
-<div class="content">
+<div class="app">
 
     <div class="clearfix">
         <section class="column left">
@@ -90,4 +82,4 @@
     </div>
 </div><!-- .content -->
 
-<?php include('footer.php'); ?>
+<?php include(APP_DIR.'views/sys/footer.php'); ?>

@@ -4,20 +4,13 @@
  *
  */
 ?>
-<?php include('header.php'); ?>
+<?php include(APP_DIR.'views/sys/header.php'); ?>
 
-<nav id="content-nav">
-    <ul class="hlist">
-        <li><a href="<?php echo BASE_URL ?>">Dashboard</a></li>
-        <li><a href="<?php echo BASE_URL . 'dataset' ?>">Datasets</a></li>
-        <li><a href="<?php echo BASE_URL . 'visualization' ?>">Visualizations</a></li>
-    </ul>
-</nav><!-- #content-nav -->
-<div class="content">
+<div class="app">
     <section>
         <h1><?php echo ( isset($title)) ? $title : ''; ?></h1>
         <p><?php echo ( isset($message)) ? $message : ''; ?></p>
     </section>
 </div><!-- .content -->
 
-<?php include('footer.php'); ?>
+<?php include(APP_DIR.'views/sys/footer.php'); ?>

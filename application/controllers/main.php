@@ -22,6 +22,7 @@ class Main extends Controller {
 
 		    // Inject user data
 		    $template->set('session', $this->session);
+		    $template->set('tab','DASH');
 		}else{
 		    // Load unauthenticated view
 		    $template = $this->load->view('index');

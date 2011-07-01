@@ -35,6 +35,7 @@ class Dataset extends Controller {
         $template->set('public_list', $public_list);
         $template->set('user_list', $user_list);
         $template->set('session', $this->session);
+        $template->set('tab','DATA');
         $template->render();
 	}
 	
@@ -49,6 +50,7 @@ class Dataset extends Controller {
         // Load view
         $template = $this->load->view('app/dummy');
         $template->set('title','Datasets');
+        $template->set('tab','DATA');
         $template->set('message', "Edit a dataset");
         $template->set('session', $this->session);
         $template->render();
@@ -65,9 +67,11 @@ class Dataset extends Controller {
         // Load view
         $template = $this->load->view('app/dataset-add');
         $template->set('title','Import a Dataset');
+        $template->set('tab','DATA');
         $template->set('message', "Choose a worksheet from your Google Docs account");
         $template->set('session', $this->session);
         
+        /*
         // Check if we have tokens to access spreadsheets
         if($this->session->checkTokens()){
             // Get spreadsheet data
@@ -83,7 +87,7 @@ class Dataset extends Controller {
             // Set vars in view
             $template->set('hastokens', false);
         }
-        
+        */
         // Render view
         $template->render();
 	}
@@ -101,6 +105,7 @@ class Dataset extends Controller {
         $template->set('title','Datasets');
         $template->set('message', "View a dataset");
         $template->set('session', $this->session);
+        $template->set('tab','DATA');
         $template->render();
 	}
     

@@ -29,6 +29,7 @@ class Visualization extends Controller {
         $template->set('title','Visualizations');
         $template->set('message', "Show all Visualizations");
         $template->set('session', $this->session);
+        $template->set('tab','VIZ');
         $template->render();
 	}
 	
@@ -45,6 +46,7 @@ class Visualization extends Controller {
         $template->set('title','Visualizations');
         $template->set('message', "Import a Visualization");
         $template->set('session', $this->session);
+        $template->set('tab','VIZ');
         $template->render();
 	}
 	
@@ -61,6 +63,7 @@ class Visualization extends Controller {
         $template->set('title','Visualizations');
         $template->set('message', "View a Visualization");
         $template->set('session', $this->session);
+        $template->set('tab','VIZ');
         $template->render();
 	}
     

@@ -13,3 +13,6 @@
     </ul>
 </footer>
 
+<?php if(DEBUG) include(APP_DIR.'views/sys/debug.php'); /* Debug data on every page */ ?>  
+
+</div><!-- #wrapper -->
