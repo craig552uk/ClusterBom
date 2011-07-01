@@ -42,6 +42,7 @@ class DataSetList extends ModelDB{
         // Execute queries and save data
         $this->dataset_p = $this->query($query_p);
         $this->dataset_u = $this->query($query_u);
+        
     }
     
     /**

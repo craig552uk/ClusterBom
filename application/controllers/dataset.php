@@ -22,9 +22,13 @@ class Dataset extends Controller {
         // Secure access only
         if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
+        // Get user ID
+        $user = $this->load->model('User');
+        $user->loadByEmail($this->session->email);
+        
         // Create dataset object
         $dataset_list = $this->load->model('DataSetList');
-        $dataset_list->buildList($this->session->id);
+        $dataset_list->buildList($user->id);
         
         // Get dataset lists
         $public_list = $dataset_list->getPublic();
@@ -65,15 +69,16 @@ class Dataset extends Controller {
         if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
         // Load view
-        $template = $this->load->view('app/dataset-add');
+        $template = $this->load->view('app/dataset-add-1');
         $template->set('title','Import a Dataset');
         $template->set('tab','DATA');
         $template->set('message', "Choose a worksheet from your Google Docs account");
         $template->set('session', $this->session);
         
-        /*
+        
         // Check if we have tokens to access spreadsheets
-        if($this->session->checkTokens()){
+        if( ($this->session->access_token !== false)
+         && ($this->session->refresh_token) !== false ){
             // Get spreadsheet data
             $gss = $this->load->helper('Google_Spreadsheets');
             $gss->setToken($this->session->access_token);
@@ -87,7 +92,7 @@ class Dataset extends Controller {
             // Set vars in view
             $template->set('hastokens', false);
         }
-        */
+        
         // Render view
         $template->render();
 	}

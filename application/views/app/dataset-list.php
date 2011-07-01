@@ -11,7 +11,8 @@
 <div class="app">
     <section>
         <h1>My Data Sets</h1>
-        <p><a href="<?php echo BASE_URL . 'dataset/add' ?>">Import From Google</a></p>
+        <a id="goog_import_button" class="button" href="<?php echo BASE_URL . 'dataset/add' ?>">Import Data</a>
+        
         <ul class="datasets">
         <?php foreach($user_list as $ds): ?>
             <li id="ds_<?php echo $ds->pk_dataset_id; ?>">

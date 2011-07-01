@@ -185,6 +185,25 @@ footer {
 }
 
 /*******************************************************************************
+ * Google Spreadsheets
+ */
+
+/* Spreadsheets browser */
+.spreadsheets {
+    border: 1px solid #999999;
+    padding: 10px;
+}
+
+/* Gogole import button */
+
+#goog_import_button {    
+    position: relative;
+    top: -61px;
+    left: 250px;
+}
+
+
+/*******************************************************************************
  * Helper Styles
  */
  
@@ -238,17 +257,31 @@ input {
 }
 
 input[type="submit"],
-input[type="button"]{
+input[type="button"],
+.button{
     padding: 5px 20px;
     width: 100px;
-    border-color: #999999;
+    border: 1px solid #999999;
     color: #595959;
+    background-color: #dddddd;
 }
 
 input[type="submit"]:hover,
-input[type="button"]:hover{
+input[type="button"]:hover,
+.button:hover{
     border-color: #595959;
     color: #090909;
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 130px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
 }
 
 .error {

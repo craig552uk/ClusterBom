@@ -69,14 +69,14 @@ class UserSession
         if(isset($_SESSION['auth'][$param])){
             return $_SESSION['auth'][$param];
         }
-        return 0;
+        return false;
     }
     
     /**
      * Direct access to stored data
      */
     public function __set($param, $value){
-        if(!isset($_SESSION['auth'][$param])){
+        if(!isset($_SESSION['auth'])){
             $_SESSION['auth'] = array();
         }
         switch($param){

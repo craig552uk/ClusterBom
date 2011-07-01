@@ -161,7 +161,8 @@ class Auth extends Controller {
                        $config['oauth']['scope']);
         
         // Do we already have our tokens?
-        if( !$this->session->checkTokens() ){
+        if( ($this->session->access_token === false)
+         && ($this->session->refresh_token) === false ){
             // No, so let's go get them
                                                 // Have I just received a valid auth response?
             if( $ga->isValidResponse()){        // Yes, so get the tokens
@@ -170,7 +171,8 @@ class Auth extends Controller {
                 $ga->getToken();
                 
                 // Save them in the session
-                $this->session->setTokens($ga->access_token, $ga->refresh_token);
+                $this->session->access_token  = $ga->access_token;
+                $this->session->refresh_token = $ga->refresh_token;
                 
                 // Close popup
     	        echo '<script type="text/javascript">window.close();</script>';
