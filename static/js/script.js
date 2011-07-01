@@ -11,23 +11,8 @@ $(document).ready(function(){
         $('#debug').slideToggle();
     });
 
-    /* Set content to max window height on load and resize*/
-    $(window).resize(function(){resizeContent()});
-    resizeContent();
-
+    /* TODO Insert placeholder text in inputs for unsupported browsers */
 });
-
-/* Set content to max window height */
-function resizeContent(){
-    /* Don't want fluid height right now
-    var h = $(window).height() - 130;
-    if(h>500){
-        $('.content').height(h);
-    }
-    */
-    var w = $('.content').width() - 60;
-    $('.column').width(w/2);
-}
 
 /* 
  * Opens a popup window at provided url
