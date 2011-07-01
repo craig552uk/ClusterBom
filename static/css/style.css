@@ -36,15 +36,15 @@
 
 /* App navigation */
 #app-nav {
-    padding-top: 25px;
+    padding-top: 35px;
 }
 
 #app-nav li {
-    line-height: 38px;
+    line-height: 28px;
 }
 
 #app-nav a{
-    padding: 10px 20px;
+    padding: 5px 20px;
     margin-left: 20px;
 }
 
@@ -68,6 +68,10 @@
     padding: 20px;
 }
 
+section>*{
+    margin-bottom: 20px;
+}
+
 /* footer */
 footer{
     padding: 10px 0;
@@ -89,6 +93,7 @@ body {
     font-size: 16px;
 }
 
+/* top navigation bar */
 #top-nav li {
     text-shadow: 0 0 2px #393939;
 }
@@ -106,6 +111,7 @@ body {
     color: #d9d9d9;
 }
 
+/* App navigation bar */
 #app-nav a {
     background-color: #5c5c5c;
     color: #ddd;
@@ -124,6 +130,7 @@ body {
     text-shadow: none;
 }
 
+/* Progress bar */
 .prog {
     background-color: #5EBEFF;
 }
@@ -147,12 +154,24 @@ body {
     color: #f9f9f9;
 }
 
+/* App content */
 .app {
     border-color: #5EBEFF;
     border-style: solid;
     background-color: #F9F9F9;
 }
 
+section {
+    font-size: 16px;s
+}
+
+section h1 {
+    font-size: 36px;
+    border-bottom: 2px solid #5c5c5c;
+    font-weight: normal;
+}
+
+/* footer */
 footer {
     font-size: 12px;
 }
@@ -175,6 +194,36 @@ footer {
     text-decoration: none;
 }
 
+/* Small text */
+.smalltext{
+    font-size: 0.8em;
+}
+
+/*******************************************************************************
+ * Form elements
+ */
+ 
+form p {
+    padding-bottom: 10px;
+    clear: both;
+}
+
+label {
+    line-height: 31px;
+    padding-right: 20px;
+}
+
+input {
+    border: 1px solid #595959;
+    padding: 5px;
+}
+
+input[type="submit"],
+input[type="button"]{
+    padding: 5px 20px;
+    width: 100px;
+}
+
 /*******************************************************************************
  * Debug section
  */
@@ -182,6 +231,7 @@ footer {
     border: 2px solid #999;
     border-top-width: 15px;
     padding: 20px 20px 0 20px;
+    margin-bottom: 20px;
     display: none;
 }
 
@@ -197,4 +247,7 @@ footer {
 
 #debug pre {
     display: none;
+    font-size: 12px;
+    font-family: monospace;
+    padding: 10px;
 }
