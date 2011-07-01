@@ -7,7 +7,7 @@
 <?php include(APP_DIR.'views/sys/header.php'); ?>
 
 <div class="app">
-    <section class="error">
+    <section>
         <h1><?php echo ( isset($title)) ? $title : ''; ?></h1>
         <p><?php echo ( isset($message)) ? $message : ''; ?></p>
     </section>

@@ -222,6 +222,18 @@ input[type="submit"],
 input[type="button"]{
     padding: 5px 20px;
     width: 100px;
+    border-color: #999999;
+    color: #595959;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover{
+    border-color: #595959;
+    color: #090909;
+}
+
+.error {
+    color: #D90909;
 }
 
 /*******************************************************************************

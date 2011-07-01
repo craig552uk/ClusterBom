@@ -13,7 +13,8 @@
             <?php if(isset($login_error)): ?><p class="error"><?php echo $login_error; ?></p><?php endif; ?>
             <p><input type="email" name="email" id="email" placeholder="Email Address"/></p>
             <p><input type="password" name="password" id="password" placeholder="Password"/></p>
-            <p><input type="submit" name="submit" id="submit" value="Sign In"/> <a class="smalltext" href="">Forgotten Password?</a></p>
+            <p><input type="submit" name="submit" id="submit" value="Sign In"/>
+               <a class="smalltext" href="<?php echo BASE_URL ?>auth/passwordreminder/">Forgotten Password?</a></p>
         </form> 
     </section>
 </div><!-- .app -->
