@@ -37,6 +37,7 @@ class Account extends Controller {
             $template->set('message', "Account Profile");
             $template->set('session', $this->session);
             $template->set('account', $user);
+            $template->set('tab', 'ACC');
             $template->render();
         }
 	}
@@ -112,6 +113,7 @@ class Account extends Controller {
         $view->set('message', "Account Profile");
         $view->set('session', $this->session);
         $view->set('account', $user);
+        $template->set('tab', 'ACC');
         $view->render();
         
 	}
@@ -126,9 +128,11 @@ class Account extends Controller {
         
         // Load view
         $template = $this->load->view('app/dummy');
-        $template->set('title','Account');
+        $template->set('title','Plan');
         $template->set('message', "Account Payment Plan");
         $template->set('session', $this->session);
+        $template->set('tab', 'PLAN');
+        $template->set('settings', true); // Just for dummy view
         $template->render();
 	}
 	
@@ -142,9 +146,11 @@ class Account extends Controller {
         
         // Load view
         $template = $this->load->view('app/dummy');
-        $template->set('title','Account');
+        $template->set('title','Help');
         $template->set('message', "Help");
         $template->set('session', $this->session);
+        $template->set('tab', 'HELP');
+        $template->set('settings', true); // Just for dummy view
         $template->render();
 	}
     

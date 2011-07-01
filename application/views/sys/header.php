@@ -9,17 +9,17 @@
 
 <?php if(isset($_SESSION['auth']) && $_SESSION['auth']['state']==='AUTHENTICATED'): /* Logged in Top Bar */ ?>
 
+<?php $tab = (!isset($tab)) ? '' : $tab; /* Default $tab if not set */ ?>
+
     <nav id="top-nav">
         <a id="logo" href="<?php echo BASE_URL; ?>"></a>
         <ul class="hlist">
             <li><span><?php echo $session->email; ?></span></li>
-            <li><a href="<?php echo BASE_URL . 'account/help'?>">Help</a></li>
-            <li><a href="<?php echo BASE_URL . 'account'?>">My Account</a></li>
+            <li><a <?php if($tab=='HELP') echo 'id="selected"'; ?> href="<?php echo BASE_URL . 'account/help'?>">Help</a></li>
+            <li><a <?php if($tab=='ACC')  echo 'id="selected"'; ?> href="<?php echo BASE_URL . 'account'?>">My Account</a></li>
             <li><a href="<?php echo BASE_URL . 'auth/logout' ?>">Sign Out</a></li>
         </ul>
     </nav><!-- #top-nav -->
-
-    <?php $tab = (!isset($tab)) ? '' : $tab; /* Default $tab if not set */ ?>
 
     <nav id="app-nav">
         <ul class="hlist">

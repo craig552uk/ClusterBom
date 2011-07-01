@@ -102,9 +102,13 @@ body {
     color: #5EBEFF;
 }
 
-#top-nav a:hover {
+#top-nav li a:hover {
     color: #ff5ed9;
     background-color: #393939;
+}
+
+#top-nav #selected {
+    color: #ff5ed9;
 }
 
 #top-nav span {
