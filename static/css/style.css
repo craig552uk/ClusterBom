@@ -65,7 +65,7 @@
 /* Main app content */
 .app {
     border-width: 15px 2px 2px 2px;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
 }
 
 section>*{
@@ -103,7 +103,7 @@ body {
 }
 
 #top-nav a:hover {
-    color: #CFCFCF;
+    color: #ff5ed9;
     background-color: #393939;
 }
 
@@ -161,8 +161,12 @@ body {
     background-color: #F9F9F9;
 }
 
+.settings {
+    border-color: #ff5ed9;
+}
+
 section {
-    font-size: 16px;s
+    font-size: 16px;
 }
 
 section h1 {
@@ -202,15 +206,26 @@ footer {
 /*******************************************************************************
  * Form elements
  */
- 
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #999999;
+}
+
+legend {
+    font-size: 26px;
+    font-weight: normal;
+}
+
 form p {
     padding-bottom: 10px;
-    clear: both;
 }
 
 label {
-    line-height: 31px;
+    display: block;
     padding-right: 20px;
+    color: #595959;
 }
 
 input {
@@ -234,6 +249,20 @@ input[type="button"]:hover{
 
 .error {
     color: #D90909;
+}
+
+.success {
+    background-color: #5EBEFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.settings .success {
+    background-color: #ffafeb;
+}
+
+.cancel {
+    margin-left: 20px;
 }
 
 /*******************************************************************************
