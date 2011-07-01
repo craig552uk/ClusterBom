@@ -69,61 +69,7 @@ class Account extends Controller {
         $template->render();
 	}
 	
-	/**
-	 * Sign up for account
-	 */
-	public function register(){
 	
-	    echo '<pre>';
-	    print_r($_POST);
-	    echo '</pre>';
-	    
-	    // Get params from submitted form
-	    $name     = (isset($_POST['name']))     ? $_POST['name'] : '';
-        $email    = (isset($_POST['email']))    ? $_POST['email'] : '';
-        $password = (isset($_POST['password'])) ? $_POST['password'] : '';
-        
-        echo $name.' '.$email.' '.$password.'</br>';
-        echo strpos($email, '@').'</br>';
-        echo strlen($password).'</br>';
-        
-        // Sanity check
-        if(($name==='')||($email==='')||($password==='')){
-            $signup_error = 'All fields are required';
-        }
-        
-        // Email validity TODO better email check
-        elseif(strpos($email, '@') === false){
-            $signup_error = 'Email must be valid';
-        }
-        
-        // Password Length TODO use decent policy
-        elseif(strlen($password) < 8){
-            $signup_error = 'Password must be at least 8 characters';
-        }
-        
-        // Form validation
-        if(isset($signup_error)){
-            // Error
-            $view = $this->load->view('index');
-            $view->set('signup_error', $signup_error);
-            $view->render();
-        }else{
-            // Create account
-            $user = $this->load->model('User');
-            $user->name = $name;
-            $user->email = $email;
-            $user->save();          // Save to get id
-            $user->password = sha1('RdGBEe8scaJx'.$user->id.$password);
-            // Create session
-            $this->session->create($email, $name);
-            // Increment count
-            $user->login_count++;   // Increment login count
-            $user->save();
-            // Go home
-            header('Location: '.BASE_URL);
-        }
-	}
     
 }
 

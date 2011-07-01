@@ -24,7 +24,7 @@
     <nav id="app-nav">
         <ul class="hlist">
             <li><a <?php if($tab=='DASH') echo 'id="selected"'; ?> href="<?php echo BASE_URL ?>">Dashboard</a></li>
-            <li><a <?php if($tab=='DATA') echo 'id="selected"'; ?> href="<?php echo BASE_URL . 'dataset' ?>">Datasets</a></li>
+            <li><a <?php if($tab=='DATA') echo 'id="selected"'; ?> href="<?php echo BASE_URL . 'dataset' ?>">Data Sets</a></li>
             <li><a <?php if($tab=='VIZ')  echo 'id="selected"'; ?> href="<?php echo BASE_URL . 'visualization' ?>">Visualizations</a></li>
         </ul>
     </nav><!-- #content-nav -->

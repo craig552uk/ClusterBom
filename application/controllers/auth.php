@@ -20,18 +20,24 @@ class Auth extends Controller {
 	}
 	
 	/**
-	 * Login function
-	 * Alias for different methods
+	 * Login form
 	 */
-	public function login(){
-	    // Use username and password
-	    $this->unamepass();
+	public function signin(){
+	    if(isset($_POST['submit'])){
+	        // Process submission
+	        $this->signin_submit();
+	    }else{
+	        // Load form
+            $template = $this->load->view('app/signin');
+            $template->set('title','Sign In');
+            $template->render();
+        }
 	}
 	
 	/**
-	 * Login with username and password
+	 * End point for login form submission
 	 */
-    public function unamepass(){
+    private function signin_submit(){
         
         // Get params from submitted form
         $email    = (isset($_POST['email']))    ? $_POST['email'] : '';
@@ -58,7 +64,7 @@ class Auth extends Controller {
         // Test for errors
         if(isset($login_error)){
             // Login Error
-            $view = $this->load->view('index');
+            $view = $this->load->view('app/signin');
             $view->set('login_error', $login_error);
             $view->render();
         }else{
@@ -74,83 +80,70 @@ class Auth extends Controller {
                 
     }
 	
-	/*
-	 * Authenticate with openID against Google
-	 * DEPRECATED - FOR NOW
+	/**
+	 * Sign up form
 	 */
-	public function openid()
-	{
-	    try{
-	        echo "Loading, Please wait...";
-	        // Create OpenID object
-	        $openid = $this->load->helper('LightOpenID');
-	        
-	        if(!$openid->mode) {
-	            // Build and send request
-	            $openid->identity = 'https://www.google.com/accounts/o8/id';
-	            $openid->required = array('namePerson/first', 'namePerson/last', 'contact/email');
-	            header('Location: ' . $openid->authUrl());
-	        }else{
-	            if($openid->validate()){
-	                // Valid response
-	                session_regenerate_id(true);
-                    $goog_data = $openid->getAttributes();
-                    $goog_id   = $openid->identity;    
-
-	                // Create empty user object
-	                $user = $this->load->model('User');
-	                // Look up email
-	                if($user->loadByEmail($goog_data['contact/email'])){
-	                    // User exists
-	                    if($user->enabled){
-	                        // Authenticated
-	                        // Update details from google
-	                        $user->fname = $goog_data['namePerson/first'];
-	                        $user->sname = $goog_data['namePerson/last'];
-	                        $user->goog_id = $goog_id;
-	                        $user->login_count++;   // Increment login count
-	                        $user->save();          // Save changes
-	                        
-	                        // Pass user ID to session
-	                        $goog_data['clusterbom/pk_cust_id'] = $user->id;
-	                    
-	                        // Start session
-        	                $this->session->createOpenID($goog_id, $goog_data);
-	                    }else{
-	                        // Account disabled
-	                        $this->session->setError('ACCOUNT_DISABLED');
-	                    }
-	                }else{
-	                    // User does not exist
-	                    $user->fname = $goog_data['namePerson/first'];
-                        $user->sname = $goog_data['namePerson/last'];
-	                    $user->email = $goog_data['contact/email'];
-                        $user->goog_id = $goog_id;
-	                    $user->login_count = 1;
-	                    $user->save();          // Create user record
-	                    
-	                    // Pass user ID to session
-	                    $goog_data['clusterbom/pk_cust_id'] = $user->id;
-	                    
-	                    // Start session
-    	                $this->session->createOpenID($goog_id, $goog_data);
-	                }
-	            }else{
-	                // Not validated by Google
-	                $this->session->setError('GOOGLE_ACCOUNT_INVALID');
-	            }
-	        }
-	        // Close popup
-	        echo '<script type="text/javascript">window.close();</script>';
-	        
-	    }catch(ErrorException $e) {
-	        // Catch exception and display error
-            $template = $this->load->view('sys/error');
-		    $template->set('title','Authentication Error');
-		    $template->set('message',$e->getMessage());
+	public function signup(){
+	
+	    if(isset($_POST['submit'])){
+	        // Process submission
+	        $this->signup_submit();
+	    }else{
+	        // Load form
+            $template = $this->load->view('app/signup');
+            $template->set('title','Sign Up');
             $template->render();
         }
 	}
+	
+	/**
+	 * Endpoint for sign up form submission
+	 */
+	private function signup_submit(){
+	
+	    // Get params from submitted form
+	    $name     = (isset($_POST['name']))     ? $_POST['name'] : '';
+        $email    = (isset($_POST['email']))    ? $_POST['email'] : '';
+        $password = (isset($_POST['password'])) ? $_POST['password'] : '';
+        
+        // Sanity check
+        if(($name==='')||($email==='')||($password==='')){
+            $signup_error = 'All fields are required';
+        }
+        
+        // Email validity TODO better email check
+        elseif(strpos($email, '@') === false){
+            $signup_error = 'Email must be valid';
+        }
+        
+        // Password Length TODO use decent policy
+        elseif(strlen($password) < 8){
+            $signup_error = 'Password must be at least 8 characters';
+        }
+        
+        // Form validation
+        if(isset($signup_error)){
+            // Error
+            $view = $this->load->view('app/signup');
+            $view->set('signup_error', $signup_error);
+            $view->render();
+        }else{
+            // Create account
+            $user = $this->load->model('User');
+            $user->name = $name;
+            $user->email = $email;
+            $user->save();          // Save to get id
+            $user->password = sha1('RdGBEe8scaJx'.$user->id.$password);
+            // Create session
+            $this->session->create($email, $name);
+            // Increment count
+            $user->login_count++;   // Increment login count
+            $user->save();
+            // Go home
+            header('Location: '.BASE_URL);
+        }
+	}
+
 	
 	/**
      * Authenticate with oAuth2.0 against Google
