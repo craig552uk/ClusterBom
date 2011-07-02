@@ -192,6 +192,9 @@ footer {
 .spreadsheets {
     border: 1px solid #999999;
     padding: 10px;
+    xoverflow: scroll;
+    overflow-y: scroll;
+    height: 500px;
 }
 
 .spreadsheets ul {
@@ -203,6 +206,24 @@ footer {
 .spreadsheets li {
     padding: 5px;
     border-bottom: 1px solid #999999;
+}
+
+.spreadsheets li:first-child {
+    border-top: 1px solid #999999;
+}
+
+.spreadsheets li div {
+    float: left;
+}
+
+.spreadsheets .title {
+    font-weight: bold;
+    width: 50%;
+}
+
+.spreadsheets .date {
+    float: right;
+    text-align: right;
 }
 
 /* Gogole import button */
