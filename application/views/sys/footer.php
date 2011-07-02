@@ -9,7 +9,7 @@
         <li>ClusterBom <a href="#">&copy; Craig Russell 2011</a></li>
         <li><a href="#">Contact</a></li>
         <li><a href="#">Privacy &amp; Terms</a></li>
-        <?php if(DEBUG): ?><li><a id="debuglink" href="#">Debug</a></li><?php endif; ?>
+        <?php if(DEBUG): ?><li><a id="debuglink" href="" onclick="return false;">Debug</a></li><?php endif; ?>
     </ul>
 </footer>
 
