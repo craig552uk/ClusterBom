@@ -110,16 +110,40 @@ class Dataset extends Controller {
 	 * Assumes tokens exist in session
 	 */
 	public function spreadsheets(){
-            // Get spreadsheet data
-            $gss = $this->load->helper('Google_Spreadsheets');
-            $gss->setToken($this->session->access_token);
-            $spreadsheets = $gss->spreadsheets();
-            
-            // Load and display view
-            $view = $this->load->view('app/dataset-add-spreadsheets');
-            $view->set('spreadsheets', $spreadsheets);
-            $view->render(false); // No head or tail on ajax requests
+        // Get spreadsheet data
+        $gss = $this->load->helper('Google_Spreadsheets');
+        $gss->setToken($this->session->access_token);
+        $spreadsheets = $gss->spreadsheets();
+        
+        // Load and display view
+        $view = $this->load->view('app/dataset-add-spreadsheets');
+        $view->set('spreadsheets', $spreadsheets);
+        $view->render(false); // No head or tail on ajax requests
 	}
+	
+	/**
+	 *
+	 */
+	public function worksheets(){
+	    $url = explode('/', $_SERVER['REQUEST_URI']);
+	    $uri = urldecode(urldecode(array_pop($url)));
+	    
+	    // Get worksheet data
+	    $gss = $this->load->helper('Google_Spreadsheets');
+        $gss->setToken($this->session->access_token);
+        $worksheets = $gss->worksheets($uri);
+        
+        // Display data
+        foreach($worksheets as $w){
+            echo '<li class="worksheet clearfix">';
+            echo '<span class="title">'.$w->title.'</span>';
+            //echo $w->uri;
+            //echo $w->parent;
+            echo '<span class="date">'.date(DATETIME_FORMAT, $w->updated).'</span>';
+            echo '</li>';
+        }
+	}
+	
     
 }
 

@@ -217,19 +217,23 @@ footer {
     color: #FFFFFF;
 }
 
-.spreadsheet span {
+.spreadsheet span,
+.worksheet span {
     display: block;
     float: left;
 }
 
-.spreadsheet .title {
+.spreadsheet .title,
+.worksheet .title {
     font-weight: bold;
     width: 50%;
 }
 
-.spreadsheet .date {
+.spreadsheet .date,
+.worksheet .date {
     float: right;
     text-align: right;
+    font-size: 0.9em;
 }
 
 .worksheets {
