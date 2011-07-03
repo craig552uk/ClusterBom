@@ -118,7 +118,7 @@ class Dataset extends Controller {
             // Load and display view
             $view = $this->load->view('app/dataset-add-spreadsheets');
             $view->set('spreadsheets', $spreadsheets);
-            $view->render();
+            $view->render(false); // No head or tail on ajax requests
 	}
     
 }
