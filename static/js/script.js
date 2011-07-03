@@ -3,12 +3,12 @@ $(document).ready(function(){
 
     /* Toggle fieldset boxes in debug section */
     $('#debug legend').click(function(){
-        $(this).nextAll().slideToggle();
+        $(this).nextAll().toggle();
     });
 
     /* Toggle debug section with debug link */
     $('#debuglink').click(function(){
-        $('#debug').slideToggle();
+        $('#debug').toggle();
     });
 
     /* Load spreadsheets asynchronously on page */
