@@ -23,7 +23,7 @@
                 <p>ClusterBom can import data from Google Docs.</p>
                 <p><a href="#" onclick="popup('<?php echo BASE_URL.'auth/oauth2/'; ?>'); return false;">Login to Google</a></p>
             </div>
-        <?php else: /*TODO Load spreadsheets list asynchronously */ ?>
+        <?php else: ?>
             <div id="ajax-spreadsheets" class="spreadsheets">
                 <p>Loading Data...</p>
                 <?php /*Load spreadsheets asynchronously*/ ?>
