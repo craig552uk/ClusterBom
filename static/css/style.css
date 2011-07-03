@@ -190,9 +190,6 @@ footer {
 
 /* Spreadsheets browser */
 .spreadsheets {
-    border: 1px solid #999999;
-    padding: 10px;
-    xoverflow: scroll;
     overflow-y: scroll;
     height: 500px;
 }
@@ -203,27 +200,47 @@ footer {
     margin: 0;
 }
 
-.spreadsheets li {
+.spreadsheet {
+    margin-bottom: 5px;
+}
+
+.spreadsheet {
+    border: 0 solid #999999;
+    border-width: 1px 0;
     padding: 5px;
-    border-bottom: 1px solid #999999;
+    background-color: #e9e9e9;
+    cursor: pointer;
 }
 
-.spreadsheets li:first-child {
-    border-top: 1px solid #999999;
+.spreadsheet:hover{
+    background-color: #5ebeff;
+    color: #FFFFFF;
 }
 
-.spreadsheets li div {
+.spreadsheet span {
+    display: block;
     float: left;
 }
 
-.spreadsheets .title {
+.spreadsheet .title {
     font-weight: bold;
     width: 50%;
 }
 
-.spreadsheets .date {
+.spreadsheet .date {
     float: right;
     text-align: right;
+}
+
+.worksheets {
+    display: none;
+}
+
+.worksheets li {
+    padding: 5px;
+    margin: 0 0 5px 20px;
+    border: 0 solid #999999;
+    border-width: 1px 0;
 }
 
 /* Gogole import button */
