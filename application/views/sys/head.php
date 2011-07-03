@@ -27,5 +27,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>static/css/style.css" type="text/css" />
     
     <script src="<?php echo BASE_URL; ?>static/js/libs/modernizr-1.7.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>static/js/libs/jquery-1.5.1.min.js"></script>
+    <script src="<?php echo BASE_URL; ?>static/js/script.js"></script>
 </head>
 <body>
