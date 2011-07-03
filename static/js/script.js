@@ -10,9 +10,6 @@ $(document).ready(function(){
     $('#debuglink').click(function(){
         $('#debug').slideToggle();
     });
-    
-    /* Load spreadsheets asynchronously on page load */
-    $('#ajax-spreadsheets').load("http://local.craig-russell.co.uk/ClusterBom/dataset/spreadsheets/");
 
     /* TODO Insert placeholder text in inputs for unsupported browsers */
 });

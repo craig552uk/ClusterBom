@@ -26,7 +26,10 @@
         <?php else: ?>
             <div id="ajax-spreadsheets" class="spreadsheets">
                 <p>Loading Data...</p>
-                <?php /*Load spreadsheets asynchronously*/ ?>
+                <script type="text/javascript">
+                    /* Load spreadsheets asynchronously on page load */
+                    $('#ajax-spreadsheets').load('<?php echo BASE_URL.'dataset/spreadsheets/'; ?>');
+                </script>
             </div>
 
             <form>
