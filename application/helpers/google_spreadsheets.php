@@ -57,7 +57,7 @@ class Google_Spreadsheets{
                     $s = null;
                     $s->title = $entry->title .'';
                     $s->uri = $entry->content->attributes()->src . '';
-                    $s->updated = strtotime($entry->updated . '');
+                    $s->updated = $this->ago(strtotime($entry->updated . ''));
                     $s->author->name = $entry->author->name .'';
                     $s->author->email = $entry->author->email .'';
                     // Append to array
@@ -94,7 +94,7 @@ class Google_Spreadsheets{
                     $w->title = $entry->title .'';
                     $w->uri = str_replace('list', 'cells', $entry->content->attributes()->src . '');
                     $w->parent = $uri;
-                    $w->updated = strtotime($entry->updated . '');
+                    $w->updated = $this->ago(strtotime($entry->updated . ''));
                     // Append to array
                     $return[] = $w;
                 }
@@ -154,5 +154,32 @@ class Google_Spreadsheets{
     public function success(){
         return $this->curl->responseCode() == 200;
     }
-
+    
+    /**
+     * Date time ago
+     * From http://www.zachstronaut.com/posts/2009/01/20/php-relative-date-time-string.html
+     */
+    private function ago($ptime){
+        $etime = time() - $ptime;
+    
+        if ($etime < 1) {
+            return '0 seconds';
+        }
+        
+        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
+                    30 * 24 * 60 * 60       =>  'month',
+                    24 * 60 * 60            =>  'day',
+                    60 * 60                 =>  'hour',
+                    60                      =>  'minute',
+                    1                       =>  'second'
+                    );
+        
+        foreach ($a as $secs => $str) {
+            $d = $etime / $secs;
+            if ($d >= 1) {
+                $r = round($d);
+                return 'Last updated ' . $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago';
+            }
+        }
+    }
 }

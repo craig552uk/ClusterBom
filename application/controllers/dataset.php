@@ -139,7 +139,7 @@ class Dataset extends Controller {
             echo '<span class="title">'.$w->title.'</span>';
             //echo $w->uri;
             //echo $w->parent;
-            echo '<span class="date">'.date(DATETIME_FORMAT, $w->updated).'</span>';
+            echo '<span class="date">'.$w->updated.'</span>';
             echo '</li>';
         }
 	}
