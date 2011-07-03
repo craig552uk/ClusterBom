@@ -24,26 +24,15 @@
                 <p><a href="#" onclick="popup('<?php echo BASE_URL.'auth/oauth2/'; ?>'); return false;">Login to Google</a></p>
             </div>
         <?php else: /*TODO Load spreadsheets list asynchronously */ ?>
-            <div class="spreadsheets">
-                <ul>
-                <?php foreach($spreadsheets as $s): ?>
-                    <li class="clearfix">
-                        <div class="title"><?php echo $s->title; ?></div> 
-                        <div class="author"><?php echo $s->author->name; ?></div>
-                        <div class="date"><?php echo date(DATETIME_FORMAT, $s->updated); ?></div>
-                    </li>
-                    <!--<p><?php echo $s->uri; ?></p>
-                    <p><?php echo $s->updated; ?></p>
-                    <p><?php echo $s->author->name; ?></p>
-                    <p><?php echo $s->author->email; ?></p>-->
-                <?php endforeach; ?>
-                </ul>
+            <div id="ajax-spreadsheets" class="spreadsheets">
+                <p>Loading Data...</p>
+                <?php /*Load spreadsheets asynchronously*/ ?>
             </div>
 
             <form>
                 <input type="hidden" name="spreadsheet" id="spreadsheet" value=""/>
                 <input type="hidden" name="worksheet" id="worksheet" value=""/>
-                <div><input type="submit" name="submit" id="submit" value="Save" />
+                <div><input type="submit" name="submit" id="submit" value="Continue" />
                    <a class="cancel" href="<?php echo BASE_URL; ?>">Cancel</a></div>
             </form>
         <?php endif; ?>

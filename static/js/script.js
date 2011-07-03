@@ -11,6 +11,15 @@ $(document).ready(function(){
         $('#debug').slideToggle();
     });
 
+    /* Load spreadsheets asynchronously on page */
+    $.ajax({
+        url : "http://local.craig-russell.co.uk/ClusterBom/dataset/spreadsheets/",
+        cache: false,
+        success : function(html){
+            $('#ajax-spreadsheets').html(html);
+        }
+    });
+    
     /* TODO Insert placeholder text in inputs for unsupported browsers */
 });
 

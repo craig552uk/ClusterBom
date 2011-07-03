@@ -79,17 +79,8 @@ class Dataset extends Controller {
         // Check if we have tokens to access spreadsheets
         if( ($this->session->access_token !== false)
          && ($this->session->refresh_token) !== false ){
-            // Get spreadsheet data
-            $gss = $this->load->helper('Google_Spreadsheets');
-            $gss->setToken($this->session->access_token);
-            $spreadsheets = $gss->spreadsheets();
-            
-            // Set vars in view
             $template->set('hastokens', true);
-            $template->set('spreadsheets', $spreadsheets);
-        
         }else{
-            // Set vars in view
             $template->set('hastokens', false);
         }
         
@@ -112,6 +103,22 @@ class Dataset extends Controller {
         $template->set('session', $this->session);
         $template->set('tab','DATA');
         $template->render();
+	}
+	
+	/**
+	 * Load spreadsheets from google
+	 * Assumes tokens exist in session
+	 */
+	public function spreadsheets(){
+            // Get spreadsheet data
+            $gss = $this->load->helper('Google_Spreadsheets');
+            $gss->setToken($this->session->access_token);
+            $spreadsheets = $gss->spreadsheets();
+            
+            // Load and display view
+            $view = $this->load->view('app/dataset-add-spreadsheets');
+            $view->set('spreadsheets', $spreadsheets);
+            $view->render();
 	}
     
 }
