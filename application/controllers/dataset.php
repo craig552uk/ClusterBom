@@ -68,24 +68,50 @@ class Dataset extends Controller {
         // Secure access only
         if(!$this->session->isAuth()) { header('Location: '.BASE_URL); }
         
-        // Load view
-        $template = $this->load->view('app/dataset-add-1');
-        $template->set('title','Import a Dataset');
-        $template->set('tab','DATA');
-        $template->set('message', "Choose a worksheet from your Google Docs account");
-        $template->set('session', $this->session);
+        // Default step
+        $step = (isset($_POST['import-step'])) ? $_POST['import-step'] : 1;
         
-        
-        // Check if we have tokens to access spreadsheets
-        if( ($this->session->access_token !== false)
-         && ($this->session->refresh_token) !== false ){
-            $template->set('hastokens', true);
-        }else{
-            $template->set('hastokens', false);
+        switch($step){
+            case 1:
+                $view = $this->load->view('app/dataset-add-1');
+                break;
+            case 2:
+                $view = $this->load->view('app/dataset-add-2');
+                break;
+            case 3:
+                $view = $this->load->view('app/dataset-add-3');
+                break;
+            case 4:
+                $view = $this->load->view('app/dataset-add-4');
+                break;
+            case 5:
+                // Import data so no view required
+                break;
+            default: // Same as 1
+                $view = $this->load->view('app/dataset-add-1');
         }
         
-        // Render view
-        $template->render();
+        if($step < 5){
+            // Pass data to view
+            $view->set('title','Import a Dataset');
+            $view->set('tab','DATA');
+            $view->set('session', $this->session);
+            
+            
+            // Check if we have tokens to access spreadsheets
+            if( ($this->session->access_token !== false)
+             && ($this->session->refresh_token) !== false ){
+                $view->set('hastokens', true);
+            }else{
+                $view->set('hastokens', false);
+            }
+            
+            // Render view
+            $view->render();
+        }else{
+            // Final step
+            header('Location: '.BASE_URL.'dataset/');
+        }
 	}
 	
 	/**
@@ -187,16 +213,11 @@ class Dataset extends Controller {
             }
         }
         
-        // Display data
-        foreach($worksheets as $w){
-            echo '<li class="worksheet clearfix" ';
-            echo 'data-uri="'.$w->uri.'">';
-            echo '<span class="title">'.$w->title.'</span>';
-            //echo $w->uri;
-            //echo $w->parent;
-            //echo '<span class="date">'.$w->updated.'</span>';
-            echo '</li>';
-        }
+        // Load and display view
+        $view = $this->load->view('app/dataset-add-worksheets');
+        $view->set('worksheets', $worksheets);
+        $view->render(false); // No head or tail on ajax requests
+        
 	}
 	
     

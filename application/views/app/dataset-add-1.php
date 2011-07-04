@@ -32,9 +32,9 @@
                 </script>
             </div>
 
-            <form>
-                <input type="hidden" name="spreadsheet" id="spreadsheet" value=""/>
-                <input type="hidden" name="worksheet" id="worksheet" value=""/>
+            <form method="post" action="">
+                <input type="hidden" name="worksheet-uri" id="worksheet-uri" value=""/>
+                <input type="hidden" name="import-step" id="import-step" value="2"/>
                 <div><input type="submit" name="submit" id="submit" value="Continue" />
                    <a class="cancel" href="<?php echo BASE_URL; ?>">Cancel</a></div>
             </form>

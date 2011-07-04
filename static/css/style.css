@@ -219,8 +219,7 @@ footer {
 
 .spreadsheet:hover,
 .worksheet:hover {
-    background-color: #5ebeff;
-    color: #FFFFFF;
+    background-color: #c9c9c9;
     cursor: pointer;
 }
 
@@ -258,6 +257,12 @@ footer {
     border-width: 1px 0;
     padding-left: 32px;
     background: transparent url('../images/worksheet_icon.png') no-repeat center left;
+}
+
+.worksheet-selected,
+.worksheet-selected:hover {
+    background-color: #5ebeff;
+    color: #FFFFFF;
 }
 
 /* Gogole import button */

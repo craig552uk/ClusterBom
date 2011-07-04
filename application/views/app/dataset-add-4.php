@@ -19,6 +19,11 @@
     <section>
         <h1>Import Data</h1>
 
+        <form method="post" action="">
+            <input type="hidden" name="import-step" id="import-step" value="5"/>
+            <div><input type="submit" name="submit" id="submit" value="Finish" />
+               <a class="cancel" href="<?php echo BASE_URL; ?>">Cancel</a></div>
+        </form>
     </section>
 </div><!-- .content -->
 
