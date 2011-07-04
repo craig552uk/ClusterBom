@@ -294,6 +294,11 @@ footer {
     border: 1px solid #999999;
 }
 
+.cells th select {
+    width: 100%;
+    border: 1px solid #999999;
+}
+
 /* Gogole import button */
 
 #goog_import_button {    

@@ -18,9 +18,18 @@
 <div class="app">
     <section>
         <h1>Configure Headings</h1>
-        <?php /* TODO show data to configure headings */ ?>
-        
+        <p>Blagh...</p>
         <form method="post" action="">
+        
+            <div id="ajax-cells">
+                <div class="frame">
+                    <p>Loading Data...</p>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $('#ajax-cells').load('<?php echo BASE_URL.'dataset/headings/'.urlencode(urlencode($worksheet_uri)); ?>');
+            </script>
+        
             <input type="hidden" name="import-step" id="import-step" value="3"/>
             <input type="hidden" name="worksheet-uri" id="worksheet-uri" value="<?php echo $worksheet_uri; ?>"/>
             <div><input type="submit" name="submit" id="submit" value="Continue" />
