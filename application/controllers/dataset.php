@@ -260,33 +260,25 @@ class Dataset extends Controller {
                 $attempt=99;
             }
         }
-        /*
-	    echo '<pre>';
-	    print_r($cells);
-	    echo '</pre>';
-	    */
 	    
+	    // Get max row and col values
 	    $max_row = $cells['meta']['max_row'];
 	    $max_col = $cells['meta']['max_col'];
 	    
-	    
-	    echo '<div class="cells hscroll frame"><table width="100%">';
-	    for($r=0; $r<$max_row; $r++){
-	        echo '<tr>';
-	        for($c='A'; $c<$max_col; $c=$this->nextCol($c)){
-	            $v = (isset($cells[$c][$r])) ? $cells[$c][$r] : '&nbsp;';
-	            echo '<td>'.$v.'</td>';
-	        }
-	        echo '</tr>';
-	    }
-	    echo '</table></div>';
+	    // Load and render view
+	    $view = $this->load->view('app/dataset-add-cells');
+	    $view->set('max_row', $max_row);
+	    $view->set('max_col', $max_col);
+	    $view->set('cells', $cells);
+	    $view->set('parent', $this);
+	    $view->render(true);
 	    
 	}
 	
 	/**
 	 * Increment column value return next in sequence
 	 */
-	private function nextCol($col){
+	public function nextCol($col){
 	    // Column values
 	    $cols = array(
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',

@@ -18,6 +18,7 @@
 <div class="app">
     <section>
         <h1>Choose Worksheet</h1>
+        <p>Choose a worksheet from Google Docs to import in to ClusterBom as a data set.</p>
         <?php if(!$hastokens): ?>
             <div class="frame">
                 <p>ClusterBom can import data from spreadsheets in your Google Docs account.</p>
