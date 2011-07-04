@@ -196,7 +196,11 @@ footer {
 .hscroll {
     overflow-y: scroll;
     height: 500px;
-    
+}
+
+.scroll {
+    overflow: scroll;
+    height: 500px;
 }
 
 .spreadsheets ul {
@@ -265,11 +269,16 @@ footer {
     color: #FFFFFF;
 }
 
-.cells tr {
+.cells tbody {
+    height: 500px;
+    overflow: scroll;
+}
+
+.cells .dr {
     background-color: #bfe5ff;
 }
 
-.cells tr:hover {
+.cells .dr:hover {
     background-color: #c9c9c9;
     cursor: pointer;
 }
@@ -280,7 +289,8 @@ footer {
     font-style: italic;
 }
 
-.cells td {
+.cells td,
+.cells th {
     border: 1px solid #999999;
 }
 
