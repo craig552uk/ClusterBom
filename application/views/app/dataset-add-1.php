@@ -19,12 +19,12 @@
     <section>
         <h1>Choose Worksheet</h1>
         <?php if(!$hastokens): ?>
-            <div class="spreadsheets">
-                <p>ClusterBom can import data from Google Docs.</p>
-                <p><a href="#" onclick="popup('<?php echo BASE_URL.'auth/oauth2/'; ?>'); return false;">Login to Google</a></p>
+            <div class="frame">
+                <p>ClusterBom can import data from spreadsheets in your Google Docs account.</p>
+                <p><a id="goog_auth" class="button" onclick="popup('<?php echo BASE_URL.'auth/oauth2/'; ?>'); return false;">Login to Google</a></p>
             </div>
         <?php else: ?>
-            <div id="ajax-spreadsheets" class="spreadsheets">
+            <div id="ajax-spreadsheets" class="spreadsheets frame">
                 <p>Loading Data...</p>
                 <script type="text/javascript">
                     /* Load spreadsheets asynchronously on page load */

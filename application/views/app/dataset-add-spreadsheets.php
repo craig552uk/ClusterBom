@@ -14,7 +14,7 @@
             <span class="date"><?php echo $s->updated; ?></span>
         </div>
         <ul class="worksheets">
-            <li>Loading Data...</li>
+            <li class="loading">Loading Data...</li>
         </ul>
     </li>
     <!--<p><?php echo $s->uri; ?></p>

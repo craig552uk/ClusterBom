@@ -189,11 +189,12 @@ class Dataset extends Controller {
         
         // Display data
         foreach($worksheets as $w){
-            echo '<li class="worksheet clearfix">';
+            echo '<li class="worksheet clearfix" ';
+            echo 'data-uri="'.$w->uri.'">';
             echo '<span class="title">'.$w->title.'</span>';
             //echo $w->uri;
             //echo $w->parent;
-            echo '<span class="date">'.$w->updated.'</span>';
+            //echo '<span class="date">'.$w->updated.'</span>';
             echo '</li>';
         }
 	}
