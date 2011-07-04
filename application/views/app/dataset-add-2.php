@@ -9,28 +9,20 @@
 <div class="prog">
     <ul class="hlist">
         <li><span>1</span>Choose Worksheet</li>
-        <li id="current"><span>2</span>Exclude Rows</li>
-        <li><span>3</span>Configure Headings</li>
+        <li id="current"><span>2</span>Configure Headings</li>
+        <li><span>3</span>Exclude Rows</li>
         <li><span>4</span>Import Data</li>
     </ul>
 </div>
 
 <div class="app">
     <section>
-        <h1>Exclude Rows</h1>
-        <p>Select rows that you want to exclude from the data import.</p>
-        <div id="ajax-cells">
-            <div class="frame">
-                <p>Loading Data...</p>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $('#ajax-cells').load('<?php echo BASE_URL.'dataset/cells/'.urlencode(urlencode($worksheet_uri)); ?>');
-        </script>
+        <h1>Configure Headings</h1>
+        <?php /* TODO show data to configure headings */ ?>
+        
         <form method="post" action="">
             <input type="hidden" name="import-step" id="import-step" value="3"/>
-            <input type="hidden" name="worksheet-uri" id="worksheet-uri" value="<?php echo (isset($_POST['worksheet-uri'])) ? $_POST['worksheet-uri'] : ''; ?>"/>
-            <input type="hidden" name="row-exclude" id="row-exclude" value=""/>
+            <input type="hidden" name="worksheet-uri" id="worksheet-uri" value="<?php echo $worksheet_uri; ?>"/>
             <div><input type="submit" name="submit" id="submit" value="Continue" />
                <a class="cancel" href="<?php echo BASE_URL; ?>">Cancel</a></div>
         </form>

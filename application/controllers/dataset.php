@@ -81,7 +81,10 @@ class Dataset extends Controller {
                 $view->set('worksheet_uri', $worksheet_uri);
                 break;
             case 3:
+                // TODO Get headings data from POST and save in session
                 $view = $this->load->view('app/dataset-add-3');
+                $worksheet_uri = (isset($_POST['worksheet-uri'])) ? $_POST['worksheet-uri'] : '';
+                $view->set('worksheet_uri', $worksheet_uri);
                 break;
             case 4:
                 $view = $this->load->view('app/dataset-add-4');
