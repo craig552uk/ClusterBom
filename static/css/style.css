@@ -162,7 +162,7 @@ body {
 .app {
     border-color: #5EBEFF;
     border-style: solid;
-    background-color: #F9F9F9;
+    background-color: #FFF;
 }
 
 .settings {
@@ -278,7 +278,8 @@ footer {
     background-color: #bfe5ff;
 }
 
-.cells .dr:hover {
+.cells .dr:hover,
+.headings .dr:hover {
     background-color: #c9c9c9;
     cursor: pointer;
 }
@@ -289,14 +290,20 @@ footer {
     font-style: italic;
 }
 
-.cells td,
-.cells th {
+td,
+th {
     border: 1px solid #999999;
 }
 
-.cells th select {
+th input {
+    width: 100%;
+    font-weight: bold;
+}
+
+th select {
     width: 100%;
     border: 1px solid #999999;
+    margin-bottom:5px;
 }
 
 /* Gogole import button */

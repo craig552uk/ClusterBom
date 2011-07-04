@@ -18,7 +18,13 @@
 <div class="app">
     <section>
         <h1>Configure Headings</h1>
-        <p>Blagh...</p>
+        <p>Set headings for each field. Click a data row to use the values in the row as field headings.</p>
+        <p>Also, define data types for the fields.</p>
+        <dl>
+            <dt>Identifier</dt><dd>The column is an idenfier for the record</dd>
+            <dt>Numeric</dt><dd>The column holds numeric data</dd>
+            <dt>Categorical</dt><dd>The column holds categorical labels</dd>
+        </dl>
         <form method="post" action="">
         
             <div id="ajax-cells">

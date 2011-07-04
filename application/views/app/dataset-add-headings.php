@@ -4,7 +4,7 @@
  */
 ?>
 
-<div class="cells scroll frame">
+<div class="headings scroll frame">
     <table width="100%">
         <thead>
             <tr>
@@ -36,11 +36,11 @@
 </div>
 <script type="text/javascript">
     $('.dr').click(function(){
-        $(this).toggleClass('ex');
-        var x='';
-        $('.ex').each(function(){
-            x+=$(this).attr('id')+'|';
+        $('td',this).each(function(){
+            var c = $(this).attr('id').substring(0,6).substring(5);
+            var t = $(this).text();
+            $('#head-label-'+c).attr('value',t);
+            
         });
-        $('#row-exclude').attr('value',x);
     });
 </script>
