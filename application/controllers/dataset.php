@@ -110,10 +110,37 @@ class Dataset extends Controller {
 	 * Assumes tokens exist in session
 	 */
 	public function spreadsheets(){
-        // Get spreadsheet data
+	
+	    // Get config data in scope
+        global $config;
+        
+        // Create Google oAuth object
+        $ga = $this->load->helper('Google_oAuth');
+        $ga->construct($config['oauth']['client_id'], 
+                       $config['oauth']['client_secret'], 
+                       $config['oauth']['redirect_uri'], 
+                       $config['oauth']['scope']);
+                       
+        // Create Google Spreadsheet object
         $gss = $this->load->helper('Google_Spreadsheets');
         $gss->setToken($this->session->access_token);
-        $spreadsheets = $gss->spreadsheets();
+        
+        // Track attempts
+        $attempt = 0;
+        while($attempt<3){
+            // Try to get data
+            $spreadsheets = $gss->spreadsheets();
+
+            // Test success
+            if (!$gss->success()){
+                // Refresh token
+                $token = $ga->refreshToken($this->session->refresh_token);
+                $gss->setToken($token);
+                $attempt++;
+            }else{
+                $attempt=99;
+            }
+        }
         
         // Load and display view
         $view = $this->load->view('app/dataset-add-spreadsheets');
@@ -125,13 +152,40 @@ class Dataset extends Controller {
 	 *
 	 */
 	public function worksheets(){
+	    // Get config data in scope
+        global $config;
+        
+        // Create Google oAuth object
+        $ga = $this->load->helper('Google_oAuth');
+        $ga->construct($config['oauth']['client_id'], 
+                       $config['oauth']['client_secret'], 
+                       $config['oauth']['redirect_uri'], 
+                       $config['oauth']['scope']);
+                       
+	    // Get URI from url
 	    $url = explode('/', $_SERVER['REQUEST_URI']);
 	    $uri = urldecode(urldecode(array_pop($url)));
 	    
-	    // Get worksheet data
+	    // Create Gogole Sopreadsheet object
 	    $gss = $this->load->helper('Google_Spreadsheets');
         $gss->setToken($this->session->access_token);
-        $worksheets = $gss->worksheets($uri);
+        
+        // Track attempts
+        $attempt = 0;
+        while($attempt<3){
+            // Try to get data
+            $worksheets = $gss->worksheets($uri);
+
+            // Test success
+            if (!$gss->success()){
+                // Refresh token
+                $token = $ga->refreshToken($this->session->refresh_token);
+                $gss->setToken($token);
+                $attempt++;
+            }else{
+                $attempt=99;
+            }
+        }
         
         // Display data
         foreach($worksheets as $w){
