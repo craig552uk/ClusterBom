@@ -261,8 +261,27 @@ footer {
 
 .worksheet-selected,
 .worksheet-selected:hover {
-    background-color: #5ebeff;
+    background-color: #bfe5ff;
     color: #FFFFFF;
+}
+
+.cells tr {
+    background-color: #bfe5ff;
+}
+
+.cells tr:hover {
+    background-color: #c9c9c9;
+    cursor: pointer;
+}
+
+.cells .ex {
+    color: #999;
+    background-color: #fff;
+    font-style: italic;
+}
+
+.cells td {
+    border: 1px solid #999999;
 }
 
 /* Gogole import button */
@@ -341,6 +360,9 @@ input[type="button"],
     color: #595959;
     background-color: #dddddd;
     cursor: pointer;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
 }
 
 input[type="submit"]:hover,

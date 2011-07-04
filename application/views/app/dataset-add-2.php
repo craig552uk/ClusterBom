@@ -18,6 +18,7 @@
 <div class="app">
     <section>
         <h1>Exclude Rows</h1>
+        <p>Select rows that you want to exclude from the data import.</p>
         <div id="ajax-cells">
             <div class="frame">
                 <p>Loading Data...</p>
@@ -28,6 +29,8 @@
         </script>
         <form method="post" action="">
             <input type="hidden" name="import-step" id="import-step" value="3"/>
+            <input type="hidden" name="worksheet-uri" id="worksheet-uri" value="<?php echo (isset($_POST['worksheet-uri'])) ? $_POST['worksheet-uri'] : ''; ?>"/>
+            <input type="hidden" name="row-exclude" id="row-exclude" value=""/>
             <div><input type="submit" name="submit" id="submit" value="Continue" />
                <a class="cancel" href="<?php echo BASE_URL; ?>">Cancel</a></div>
         </form>
