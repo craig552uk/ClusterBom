@@ -122,13 +122,17 @@ class Google_Spreadsheets{
             // Convert XMl Response
             $xml = simplexml_load_string($response);
             
+            // Track size
+            $max_col = 'A';
+            $max_row = 0;
+            
             // Extract data
             foreach($xml as $entry){
                 if (isset($entry->id)){
                     // Get cell name and split in to row & col values
                     $k= $entry->title .'';
-                    $row = preg_replace('/[0-9]/', '', $k);
-                    $col = preg_replace('/[A-Z]/', '', $k);
+                    $row = preg_replace('/[A-Z]/', '', $k);
+                    $col = preg_replace('/[0-9]/', '', $k);
                     
                     // Get cell value and filter
                     $val = $entry->content .'';
@@ -141,9 +145,17 @@ class Google_Spreadsheets{
                     }else{
                         $return[$col][$row] = $val;
                     }
+                    
+                    // Increment max size
+                    $max_col = ($col>$max_col) ? $col : $max_col;
+                    $max_row = ($row>$max_row) ? $row : $max_row;
                 }
             }
         }
+        // Append max lengths to array
+        $return['meta']['max_row'] = $max_row;
+        $return['meta']['max_col'] = $max_col;
+        
         return $return;
     }
     

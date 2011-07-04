@@ -24,7 +24,7 @@
                 <p><a id="goog_auth" class="button" onclick="popup('<?php echo BASE_URL.'auth/oauth2/'; ?>'); return false;">Login to Google</a></p>
             </div>
         <?php else: ?>
-            <div id="ajax-spreadsheets" class="spreadsheets frame">
+            <div id="ajax-spreadsheets" class="spreadsheets hscroll frame">
                 <p>Loading Data...</p>
                 <script type="text/javascript">
                     /* Load spreadsheets asynchronously on page load */

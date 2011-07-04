@@ -18,7 +18,14 @@
 <div class="app">
     <section>
         <h1>Exclude Rows</h1>
-
+        <div id="ajax-cells">
+            <div class="frame">
+                <p>Loading Data...</p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $('#ajax-cells').load('<?php echo BASE_URL.'dataset/cells/'.urlencode(urlencode($worksheet_uri)); ?>');
+        </script>
         <form method="post" action="">
             <input type="hidden" name="import-step" id="import-step" value="3"/>
             <div><input type="submit" name="submit" id="submit" value="Continue" />

@@ -193,7 +193,7 @@ footer {
  */
 
 /* Spreadsheets browser */
-.spreadsheets {
+.hscroll {
     overflow-y: scroll;
     height: 500px;
     
