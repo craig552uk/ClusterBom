@@ -8,20 +8,20 @@
     <table width="100%">
         <thead>
             <tr>
-                <?php for($c='A'; $c<$max_col; $c=$parent->nextCol($c)): ?>
+                <th class="side-col">&nbsp;</th>
+                <?php for($c='A'; $c<=$max_col; $c=$parent->nextCol($c)): ?>
                     <th id="head-<?php echo $c; ?>"><?php echo $headings[$c]->label; ?></th>
                 <?php endfor;?>
             </tr>
         </thead>
         <tbody>
-            <?php for($r=1; $r<$max_row; $r++): ?>
+            <?php for($r=1; $r<=$max_row; $r++): ?>
                 <tr id="row-<?php echo $r; ?>" class="dr">
-                
-                    <?php for($c='A'; $c<$max_col; $c=$parent->nextCol($c)): ?>
+                    <td class="side-col">&nbsp;</td>
+                    <?php for($c='A'; $c<=$max_col; $c=$parent->nextCol($c)): ?>
                         <?php $v = (isset($cells[$c][$r])) ? $cells[$c][$r] : '&nbsp;'; ?>
                         <td id="cell-<?php echo $c.$r; ?>"><?php echo $v; ?></td>
                     <?php endfor;?>
-                    
                 </tr>
             <?php endfor;?>
         </tbody>

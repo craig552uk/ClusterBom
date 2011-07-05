@@ -287,6 +287,9 @@ class Dataset extends Controller {
 	    $max_row = $cells['meta']['max_row'];
 	    $max_col = $cells['meta']['max_col'];
 	    
+	    // Store cells data in session
+	    $_SESSION['cells'] = $cells;
+	    
 	    // Load and render view
 	    $view = $this->load->view('app/dataset-add-headings');
 	    $view->set('max_row', $max_row);
@@ -301,40 +304,8 @@ class Dataset extends Controller {
 	 * Asynchronously load worksheet cells
 	 */
 	public function cells(){
-	    // Get config data in scope
-        global $config;
-        
-        // Create Google oAuth object
-        $ga = $this->load->helper('Google_oAuth');
-        $ga->construct($config['oauth']['client_id'], 
-                       $config['oauth']['client_secret'], 
-                       $config['oauth']['redirect_uri'], 
-                       $config['oauth']['scope']);
-                       
-	    // Get URI from url
-	    $url = explode('/', $_SERVER['REQUEST_URI']);
-	    $uri = urldecode(urldecode(array_pop($url)));
-	    
-	    // Create Gogole Spreadsheet object
-	    $gss = $this->load->helper('Google_Spreadsheets');
-        $gss->setToken($this->session->access_token);
-        
-        // Track attempts
-        $attempt = 0;
-        while($attempt<3){
-            // Try to get data
-            $cells = $gss->cells($uri, true);
-
-            // Test success
-            if (!$gss->success()){
-                // Refresh token
-                $token = $ga->refreshToken($this->session->refresh_token);
-                $gss->setToken($token);
-                $attempt++;
-            }else{
-                $attempt=99;
-            }
-        }
+	    // Get cell data from session
+	    $cells = $_SESSION['cells'];
 	    
 	    // Get max row and col values
 	    $max_row = $cells['meta']['max_row'];
