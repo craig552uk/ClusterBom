@@ -154,11 +154,13 @@ class Google_Spreadsheets{
                     $max_row = ($row>$max_row) ? $row : $max_row;
                 }
             }
+            
+            // Append max lengths to array
+            $return['meta'] = array();
+            $return['meta']['max_row'] = $max_row;
+            $return['meta']['max_col'] = $max_col;
         }
-        // Append max lengths to array
-        $return['meta'] = array();
-        $return['meta']['max_row'] = $max_row;
-        $return['meta']['max_col'] = $max_col;
+        
         
         return $return;
     }
