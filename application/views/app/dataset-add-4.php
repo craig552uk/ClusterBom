@@ -18,7 +18,8 @@
 <div class="app">
     <section>
         <h1>Import Data</h1>
-
+        <p>Thanks! That's everything I need to know.</p>
+        <p>Click finish to import your new data set.</p>
         <form method="post" action="">
             <input type="hidden" name="import-step" id="import-step" value="5"/>
             <div><input type="submit" name="submit" id="submit" value="Finish" />

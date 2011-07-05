@@ -81,7 +81,6 @@ class Dataset extends Controller {
                 $view->set('worksheet_uri', $worksheet_uri);
                 break;
             case 3:
-                // TODO Get headings data from POST and save in session
                 $headings = array();
                 // Get header labels
                 foreach($_POST as $k=>$v){
@@ -106,6 +105,18 @@ class Dataset extends Controller {
                 $view->set('worksheet_uri', $worksheet_uri);
                 break;
             case 4:
+                // Get list of rows to remove from POST
+                $remove = explode('|', $_POST['row-exclude']);
+                
+                // Unset rows from session data
+                foreach($_SESSION['cells'] as $col=>$cell){
+                    foreach($cell as $row=>$val){
+                        if(in_array($row, $remove)){
+                            unset($_SESSION['cells'][$col][$row]);
+                        }
+                    }
+                }
+            
                 $view = $this->load->view('app/dataset-add-4');
                 break;
             case 5:
