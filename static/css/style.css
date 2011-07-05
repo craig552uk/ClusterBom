@@ -290,20 +290,24 @@ footer {
     font-style: italic;
 }
 
-td,
-th {
+td {
     border: 1px solid #999999;
+}
+
+th {
+    background-color: #5EBEFF;
+    border: 1px solid #999999;
+    padding: 1px;
 }
 
 th input {
     width: 100%;
+    padding: 0;
     font-weight: bold;
 }
 
 th select {
     width: 100%;
-    border: 1px solid #999999;
-    margin-bottom:5px;
 }
 
 /* Gogole import button */

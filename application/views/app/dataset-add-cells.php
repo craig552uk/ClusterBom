@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <?php for($c='A'; $c<$max_col; $c=$parent->nextCol($c)): ?>
-                    <th id="head-<?php echo $c; ?>"><?php echo 'Nowt'; ?></th>
+                    <th id="head-<?php echo $c; ?>"><?php echo $headings[$c]->label; ?></th>
                 <?php endfor;?>
             </tr>
         </thead>

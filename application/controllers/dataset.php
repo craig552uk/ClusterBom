@@ -82,6 +82,25 @@ class Dataset extends Controller {
                 break;
             case 3:
                 // TODO Get headings data from POST and save in session
+                $headings = array();
+                // Get header labels
+                foreach($_POST as $k=>$v){
+                    $arr = explode('-', $k);
+                    if(isset($arr[0]) && $arr[0]=='head'){
+                        switch($arr[1]){
+                            case 'label':
+                                $headings[$arr[2]]->label = $v;
+                                break;
+                            case 'type':
+                                $headings[$arr[2]]->type = $v;
+                                break;
+                        }
+                    }
+                }
+                
+                // Save in session
+                $_SESSION['headings'] = $headings;
+                
                 $view = $this->load->view('app/dataset-add-3');
                 $worksheet_uri = (isset($_POST['worksheet-uri'])) ? $_POST['worksheet-uri'] : '';
                 $view->set('worksheet_uri', $worksheet_uri);
@@ -327,6 +346,7 @@ class Dataset extends Controller {
 	    $view->set('max_col', $max_col);
 	    $view->set('cells', $cells);
 	    $view->set('parent', $this);
+	    $view->set('headings', $_SESSION['headings']);
 	    $view->render(false);
 	    
 	}
