@@ -14,7 +14,7 @@
     <div class="clearfix">
         <section class="column left">
             <h1>Welcome to ClusterBom</h1>
-            <div class="scroll">
+            <div>
                 <p>Lorem ipsum dolor sit amet augue. Est aliquam metus. Ipsum 
                 arcu odio. Sed consectetuer nec elementum lacinia a sapien dis 
                 arcu in feugiat et. Ligula vulputate lacinia gravida eu elit.
@@ -29,7 +29,7 @@
         
         <section class="column right">
             <h1>Account Usage</h1>
-            <div class="scroll">
+            <div>
                 <dl>
                     <dt>Package<dt>
                         <dd>Free<dd>
@@ -46,14 +46,14 @@
     <div class="clearfix">    
         <section class="column left">
             <h1>Welcome to ClusterBom</h1>
-            <div class="scroll">
+            <div>
             
             </div>
         </section>
         
         <section class="column right">
             <h1>Latest News</h1>
-            <div class="scroll">
+            <div>
                 <ul>
                     <li>
                         <h2>New Data Sets Available</h2>
