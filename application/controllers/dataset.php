@@ -295,7 +295,6 @@ class Dataset extends Controller {
 	    $view->set('max_row', $max_row);
 	    $view->set('max_col', $max_col);
 	    $view->set('cells', $cells);
-	    $view->set('parent', $this);
 	    $view->render(false);
 	    
 	}
@@ -316,10 +315,8 @@ class Dataset extends Controller {
 	    $view->set('max_row', $max_row);
 	    $view->set('max_col', $max_col);
 	    $view->set('cells', $cells);
-	    $view->set('parent', $this);
 	    $view->set('headings', $_SESSION['headings']);
 	    $view->render(false);
-	    
 	}
 	
 	/**
